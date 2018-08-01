@@ -25,38 +25,9 @@
         </ul>
     </div>
     <hr>
-    <message title="Nome completo" body="Teste 123 do 567 lalaland"></message>
-
-    <message title="Cantores" body="José e Fernando"></message>
-
-    <div class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-            Oiiiiiiiiiiiiiii
-        </div>
-        <button class="modal-close is-large" aria-label="close"></button>
-    </div>
 </div>
-<script src="vue.js"></script>
+<script src="assets/vue.js"></script>
 <script>
-
-    Vue.component('message', {
-        props: ['title', 'body'],
-        data(){
-            return{
-                isVisible:true
-            };
-        },
-        template: `<article class="message" v-show="isVisible">
-        <div class="message-header">
-        <p>{{title}}</p>
-        <button class="delete" @click="isVisible = false" aria-label="delete"></button>
-        </div>
-        <div class="message-body">
-        {{body}}
-        </div>
-    </article>`
-    });
 
     var app = new Vue({
         el: '#tasks',

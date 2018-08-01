@@ -1,61 +1,84 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Vue</title>
-        <script type="text/javascript" src="vue.js"></script>
-    </head>
-    <body>
-        <div id="app">
-            <input type="text" v-on:input="changeTitle">
-            <p>{{title}} <br> Data: <?php echo date('d/m/Y H:i'); ?></p>
-            {{ message }}
-        </div>
-        <hr>
-        <div id="app-2">
-            <span v-bind:title="message">
-                Hover your mouse over me for a few seconds
-                to see my dynamically bound title!
-            </span>
-        </div>
-        <hr>
-        <div id="app-3">
-            <span v-if="seen">Now you see me</span>
-        </div>
-        <hr>
-        <div id="app-4">
-            <ol>
-                <li v-for="todo in todos">
-                    {{ todo.text }}
-                </li>
-            </ol>
-        </div>
-        <hr>
-        <div id="app-5">
-            <p>{{ message }}</p>
-            <button @click="reverseMessage">Reverse Message</button>
-        </div>
-        <hr>
-        <div id="app-6">
-            <p>{{ message }}</p>
-            <input v-model="message">
-        </div>
-        <hr>
-        <div id="app-7">
-            <ol>
-                <!--
-                  Now we provide each todo-item with the todo object
-                  it's representing, so that its content can be dynamic.
-                  We also need to provide each component with a "key",
-                  which will be explained later.
-                -->
-                <todo-item
-                    v-for="item in groceryList"
-                    v-bind:todo="item"
-                    v-bind:key="item.id">
-                </todo-item>
-            </ol>
-        </div>
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <script type="text/javascript" src="app.js"></script>
-    </body>
+    <title>Lab Vue 2</title>
+
+    <link rel="stylesheet" href="assets/bootstrap.css">
+</head>
+<body>
+<div class="container" id="tasks">
+    <input
+            class="form-control"
+            v-model="newTodoText"
+            v-on:keyup.enter="addNewTodo"
+            placeholder="Add a todo"
+    >
+    <hr>
+    {{todos.length}}
+    <message v-for="(todo, index) in todos.data"
+             v-bind:title="todo.nome"
+             v-bind:key="todo.id" v-on:remove="todos.data.splice(index, 1)"
+             v-bind:body="todo.email"></message>
+
+</div>
+<script src="assets/vue.js"></script>
+<script src="assets/axios.min.js"></script>
+<script src="assets/vue-router.js"></script>
+<script>
+    Vue.component('message', {
+        props: ['title', 'body'],
+        data() {
+            return {
+                isVisible: true
+            };
+        },
+        template: `<div class="panel panel-default">
+        <div class="panel-heading">
+        <p class="panel-title">{{title}}</p>
+        <button class="btn btn-warning delete" @click="$emit('remove')" aria-label="delete">x</button>
+        </div>
+        <div class="panel-body">
+        {{body}}
+        </div>
+    </div>`
+    });
+
+/*    new Vue({
+        el: '#app',
+        data () {
+            return {
+                info: null
+            }
+        },
+
+    })*/
+
+    var app = new Vue({
+        el: '#tasks',
+        data: {
+            newTodoText: '',
+            todos: [],
+            nextTodoId: 5
+        },
+        mounted () {
+            axios
+                .get('http://localhost:8080/api/usuario')
+                .then(response => (this.todos = response))
+        },
+        methods: {
+            addNewTodo: function () {
+                this.todos.data.push({
+                    id: this.nextTodoId++,
+                    nome: this.newTodoText
+                })
+                this.newTodoText = ''
+            }
+        }
+    })
+</script>
+</body>
 </html>

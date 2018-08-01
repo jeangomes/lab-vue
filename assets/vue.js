@@ -1,11 +1,6 @@
 /*!
-<<<<<<< HEAD
- * Vue.js v2.4.0
- * (c) 2014-2017 Evan You
-=======
- * Vue.js v2.5.15
+ * Vue.js v2.5.16
  * (c) 2014-2018 Evan You
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
  * Released under the MIT License.
  */
 (function (global, factory) {
@@ -16,11 +11,8 @@
 
 /*  */
 
-<<<<<<< HEAD
-=======
 var emptyObject = Object.freeze({});
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 // these helpers produces better vm code in JS engines due to their
 // explicitness and function inlining
 function isUndef (v) {
@@ -43,9 +35,6 @@ function isFalse (v) {
  * Check if value is primitive
  */
 function isPrimitive (value) {
-<<<<<<< HEAD
-  return typeof value === 'string' || typeof value === 'number'
-=======
   return (
     typeof value === 'string' ||
     typeof value === 'number' ||
@@ -53,7 +42,6 @@ function isPrimitive (value) {
     typeof value === 'symbol' ||
     typeof value === 'boolean'
   )
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 }
 
 /**
@@ -65,10 +53,6 @@ function isObject (obj) {
   return obj !== null && typeof obj === 'object'
 }
 
-<<<<<<< HEAD
-var _toString = Object.prototype.toString;
-
-=======
 /**
  * Get the raw type string of a value e.g. [object Object]
  */
@@ -78,7 +62,6 @@ function toRawType (value) {
   return _toString.call(value).slice(8, -1)
 }
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 /**
  * Strict object type check. Only returns true
  * for plain JavaScript objects.
@@ -95,11 +78,7 @@ function isRegExp (v) {
  * Check if val is a valid array index.
  */
 function isValidArrayIndex (val) {
-<<<<<<< HEAD
-  var n = parseFloat(val);
-=======
   var n = parseFloat(String(val));
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   return n >= 0 && Math.floor(n) === n && isFinite(val)
 }
 
@@ -149,11 +128,7 @@ var isBuiltInTag = makeMap('slot,component', true);
 /**
  * Check if a attribute is a reserved attribute.
  */
-<<<<<<< HEAD
-var isReservedAttribute = makeMap('key,ref,slot,is');
-=======
 var isReservedAttribute = makeMap('key,ref,slot,slot-scope,is');
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
 /**
  * Remove an item from an array
@@ -204,20 +179,6 @@ var capitalize = cached(function (str) {
 /**
  * Hyphenate a camelCase string.
  */
-<<<<<<< HEAD
-var hyphenateRE = /([^-])([A-Z])/g;
-var hyphenate = cached(function (str) {
-  return str
-    .replace(hyphenateRE, '$1-$2')
-    .replace(hyphenateRE, '$1-$2')
-    .toLowerCase()
-});
-
-/**
- * Simple bind, faster than native
- */
-function bind (fn, ctx) {
-=======
 var hyphenateRE = /\B([A-Z])/g;
 var hyphenate = cached(function (str) {
   return str.replace(hyphenateRE, '-$1').toLowerCase()
@@ -233,7 +194,6 @@ var hyphenate = cached(function (str) {
 
 /* istanbul ignore next */
 function polyfillBind (fn, ctx) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   function boundFn (a) {
     var l = arguments.length;
     return l
@@ -242,17 +202,11 @@ function polyfillBind (fn, ctx) {
         : fn.call(ctx, a)
       : fn.call(ctx)
   }
-<<<<<<< HEAD
-  // record original fn length
-=======
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   boundFn._length = fn.length;
   return boundFn
 }
 
-<<<<<<< HEAD
-=======
 function nativeBind (fn, ctx) {
   return fn.bind(ctx)
 }
@@ -261,7 +215,6 @@ var bind = Function.prototype.bind
   ? nativeBind
   : polyfillBind;
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 /**
  * Convert an Array-like object to a real Array.
  */
@@ -329,20 +282,11 @@ function genStaticKeys (modules) {
  * if they are plain objects, do they have the same shape?
  */
 function looseEqual (a, b) {
-<<<<<<< HEAD
-=======
   if (a === b) { return true }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   var isObjectA = isObject(a);
   var isObjectB = isObject(b);
   if (isObjectA && isObjectB) {
     try {
-<<<<<<< HEAD
-      return JSON.stringify(a) === JSON.stringify(b)
-    } catch (e) {
-      // possible circular reference
-      return a === b
-=======
       var isArrayA = Array.isArray(a);
       var isArrayB = Array.isArray(b);
       if (isArrayA && isArrayB) {
@@ -362,7 +306,6 @@ function looseEqual (a, b) {
     } catch (e) {
       /* istanbul ignore next */
       return false
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     }
   } else if (!isObjectA && !isObjectB) {
     return String(a) === String(b)
@@ -409,12 +352,8 @@ var LIFECYCLE_HOOKS = [
   'beforeDestroy',
   'destroyed',
   'activated',
-<<<<<<< HEAD
-  'deactivated'
-=======
   'deactivated',
   'errorCaptured'
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 ];
 
 /*  */
@@ -423,10 +362,7 @@ var config = ({
   /**
    * Option merge strategies (used in core/util/options)
    */
-<<<<<<< HEAD
-=======
   // $flow-disable-line
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   optionMergeStrategies: Object.create(null),
 
   /**
@@ -467,10 +403,7 @@ var config = ({
   /**
    * Custom user key aliases for v-on
    */
-<<<<<<< HEAD
-=======
   // $flow-disable-line
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   keyCodes: Object.create(null),
 
   /**
@@ -511,19 +444,10 @@ var config = ({
    * Exposed for legacy reasons
    */
   _lifecycleHooks: LIFECYCLE_HOOKS
-<<<<<<< HEAD
-});
-
-/*  */
-
-var emptyObject = Object.freeze({});
-
-=======
 })
 
 /*  */
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 /**
  * Check if a string starts with $ or _
  */
@@ -564,11 +488,6 @@ function parsePath (path) {
 
 /*  */
 
-<<<<<<< HEAD
-var warn = noop;
-var tip = noop;
-var formatComponentName = (null); // work around flow check
-=======
 // can we use __proto__?
 var hasProto = '__proto__' in {};
 
@@ -661,7 +580,6 @@ var warn = noop;
 var tip = noop;
 var generateComponentTrace = (noop); // work around flow check
 var formatComponentName = (noop);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
 {
   var hasConsole = typeof console !== 'undefined';
@@ -692,17 +610,6 @@ var formatComponentName = (noop);
     if (vm.$root === vm) {
       return '<Root>'
     }
-<<<<<<< HEAD
-    var name = typeof vm === 'string'
-      ? vm
-      : typeof vm === 'function' && vm.options
-        ? vm.options.name
-        : vm._isVue
-          ? vm.$options.name || vm.$options._componentTag
-          : vm.name;
-
-    var file = vm._isVue && vm.$options.__file;
-=======
     var options = typeof vm === 'function' && vm.cid != null
       ? vm.options
       : vm._isVue
@@ -710,7 +617,6 @@ var formatComponentName = (noop);
         : vm || {};
     var name = options.name || options._componentTag;
     var file = options.__file;
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     if (!name && file) {
       var match = file.match(/([^/\\]+)\.vue$/);
       name = match && match[1];
@@ -732,11 +638,7 @@ var formatComponentName = (noop);
     return res
   };
 
-<<<<<<< HEAD
-  var generateComponentTrace = function (vm) {
-=======
   generateComponentTrace = function (vm) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     if (vm._isVue && vm.$parent) {
       var tree = [];
       var currentRecursiveSequence = 0;
@@ -768,200 +670,6 @@ var formatComponentName = (noop);
 
 /*  */
 
-<<<<<<< HEAD
-function handleError (err, vm, info) {
-  if (config.errorHandler) {
-    config.errorHandler.call(null, err, vm, info);
-  } else {
-    {
-      warn(("Error in " + info + ": \"" + (err.toString()) + "\""), vm);
-    }
-    /* istanbul ignore else */
-    if (inBrowser && typeof console !== 'undefined') {
-      console.error(err);
-    } else {
-      throw err
-    }
-  }
-}
-
-/*  */
-/* globals MutationObserver */
-
-// can we use __proto__?
-var hasProto = '__proto__' in {};
-
-// Browser environment sniffing
-var inBrowser = typeof window !== 'undefined';
-var UA = inBrowser && window.navigator.userAgent.toLowerCase();
-var isIE = UA && /msie|trident/.test(UA);
-var isIE9 = UA && UA.indexOf('msie 9.0') > 0;
-var isEdge = UA && UA.indexOf('edge/') > 0;
-var isAndroid = UA && UA.indexOf('android') > 0;
-var isIOS = UA && /iphone|ipad|ipod|ios/.test(UA);
-var isChrome = UA && /chrome\/\d+/.test(UA) && !isEdge;
-
-// Firefix has a "watch" function on Object.prototype...
-var nativeWatch = ({}).watch;
-
-var supportsPassive = false;
-if (inBrowser) {
-  try {
-    var opts = {};
-    Object.defineProperty(opts, 'passive', ({
-      get: function get () {
-        /* istanbul ignore next */
-        supportsPassive = true;
-      }
-    })); // https://github.com/facebook/flow/issues/285
-    window.addEventListener('test-passive', null, opts);
-  } catch (e) {}
-}
-
-// this needs to be lazy-evaled because vue may be required before
-// vue-server-renderer can set VUE_ENV
-var _isServer;
-var isServerRendering = function () {
-  if (_isServer === undefined) {
-    /* istanbul ignore if */
-    if (!inBrowser && typeof global !== 'undefined') {
-      // detect presence of vue-server-renderer and avoid
-      // Webpack shimming the process
-      _isServer = global['process'].env.VUE_ENV === 'server';
-    } else {
-      _isServer = false;
-    }
-  }
-  return _isServer
-};
-
-// detect devtools
-var devtools = inBrowser && window.__VUE_DEVTOOLS_GLOBAL_HOOK__;
-
-/* istanbul ignore next */
-function isNative (Ctor) {
-  return typeof Ctor === 'function' && /native code/.test(Ctor.toString())
-}
-
-var hasSymbol =
-  typeof Symbol !== 'undefined' && isNative(Symbol) &&
-  typeof Reflect !== 'undefined' && isNative(Reflect.ownKeys);
-
-/**
- * Defer a task to execute it asynchronously.
- */
-var nextTick = (function () {
-  var callbacks = [];
-  var pending = false;
-  var timerFunc;
-
-  function nextTickHandler () {
-    pending = false;
-    var copies = callbacks.slice(0);
-    callbacks.length = 0;
-    for (var i = 0; i < copies.length; i++) {
-      copies[i]();
-    }
-  }
-
-  // the nextTick behavior leverages the microtask queue, which can be accessed
-  // via either native Promise.then or MutationObserver.
-  // MutationObserver has wider support, however it is seriously bugged in
-  // UIWebView in iOS >= 9.3.3 when triggered in touch event handlers. It
-  // completely stops working after triggering a few times... so, if native
-  // Promise is available, we will use it:
-  /* istanbul ignore if */
-  if (typeof Promise !== 'undefined' && isNative(Promise)) {
-    var p = Promise.resolve();
-    var logError = function (err) { console.error(err); };
-    timerFunc = function () {
-      p.then(nextTickHandler).catch(logError);
-      // in problematic UIWebViews, Promise.then doesn't completely break, but
-      // it can get stuck in a weird state where callbacks are pushed into the
-      // microtask queue but the queue isn't being flushed, until the browser
-      // needs to do some other work, e.g. handle a timer. Therefore we can
-      // "force" the microtask queue to be flushed by adding an empty timer.
-      if (isIOS) { setTimeout(noop); }
-    };
-  } else if (typeof MutationObserver !== 'undefined' && (
-    isNative(MutationObserver) ||
-    // PhantomJS and iOS 7.x
-    MutationObserver.toString() === '[object MutationObserverConstructor]'
-  )) {
-    // use MutationObserver where native Promise is not available,
-    // e.g. PhantomJS IE11, iOS7, Android 4.4
-    var counter = 1;
-    var observer = new MutationObserver(nextTickHandler);
-    var textNode = document.createTextNode(String(counter));
-    observer.observe(textNode, {
-      characterData: true
-    });
-    timerFunc = function () {
-      counter = (counter + 1) % 2;
-      textNode.data = String(counter);
-    };
-  } else {
-    // fallback to setTimeout
-    /* istanbul ignore next */
-    timerFunc = function () {
-      setTimeout(nextTickHandler, 0);
-    };
-  }
-
-  return function queueNextTick (cb, ctx) {
-    var _resolve;
-    callbacks.push(function () {
-      if (cb) {
-        try {
-          cb.call(ctx);
-        } catch (e) {
-          handleError(e, ctx, 'nextTick');
-        }
-      } else if (_resolve) {
-        _resolve(ctx);
-      }
-    });
-    if (!pending) {
-      pending = true;
-      timerFunc();
-    }
-    if (!cb && typeof Promise !== 'undefined') {
-      return new Promise(function (resolve, reject) {
-        _resolve = resolve;
-      })
-    }
-  }
-})();
-
-var _Set;
-/* istanbul ignore if */
-if (typeof Set !== 'undefined' && isNative(Set)) {
-  // use native Set when available.
-  _Set = Set;
-} else {
-  // a non-standard Set polyfill that only works with primitive keys.
-  _Set = (function () {
-    function Set () {
-      this.set = Object.create(null);
-    }
-    Set.prototype.has = function has (key) {
-      return this.set[key] === true
-    };
-    Set.prototype.add = function add (key) {
-      this.set[key] = true;
-    };
-    Set.prototype.clear = function clear () {
-      this.set = Object.create(null);
-    };
-
-    return Set;
-  }());
-}
-
-/*  */
-
-=======
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
 var uid = 0;
 
@@ -1011,44 +719,6 @@ function popTarget () {
   Dep.target = targetStack.pop();
 }
 
-<<<<<<< HEAD
-/*
- * not type checking this file because flow doesn't play well with
- * dynamically accessing methods on Array prototype
- */
-
-var arrayProto = Array.prototype;
-var arrayMethods = Object.create(arrayProto);[
-  'push',
-  'pop',
-  'shift',
-  'unshift',
-  'splice',
-  'sort',
-  'reverse'
-]
-.forEach(function (method) {
-  // cache original method
-  var original = arrayProto[method];
-  def(arrayMethods, method, function mutator () {
-    var args = [], len = arguments.length;
-    while ( len-- ) args[ len ] = arguments[ len ];
-
-    var result = original.apply(this, args);
-    var ob = this.__ob__;
-    var inserted;
-    switch (method) {
-      case 'push':
-      case 'unshift':
-        inserted = args;
-        break
-      case 'splice':
-        inserted = args.slice(2);
-        break
-    }
-    if (inserted) { ob.observeArray(inserted); }
-    // notify change
-=======
 /*  */
 
 var VNode = function VNode (
@@ -1177,7 +847,6 @@ methodsToPatch.forEach(function (method) {
     }
     if (inserted) { ob.observeArray(inserted); }
     // notify change
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     ob.dep.notify();
     return result
   });
@@ -1188,22 +857,6 @@ methodsToPatch.forEach(function (method) {
 var arrayKeys = Object.getOwnPropertyNames(arrayMethods);
 
 /**
-<<<<<<< HEAD
- * By default, when a reactive property is set, the new value is
- * also converted to become reactive. However when passing down props,
- * we don't want to force conversion because the value may be a nested value
- * under a frozen data structure. Converting it would defeat the optimization.
- */
-var observerState = {
-  shouldConvert: true
-};
-
-/**
- * Observer class that are attached to each observed
- * object. Once attached, the observer converts target
- * object's property keys into getter/setters that
- * collect dependencies and dispatches updates.
-=======
  * In some cases we may want to disable observation inside a component's
  * update computation.
  */
@@ -1218,7 +871,6 @@ function toggleObserving (value) {
  * object. Once attached, the observer converts the target
  * object's property keys into getter/setters that
  * collect dependencies and dispatch updates.
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
  */
 var Observer = function Observer (value) {
   this.value = value;
@@ -1244,11 +896,7 @@ var Observer = function Observer (value) {
 Observer.prototype.walk = function walk (obj) {
   var keys = Object.keys(obj);
   for (var i = 0; i < keys.length; i++) {
-<<<<<<< HEAD
-    defineReactive$$1(obj, keys[i], obj[keys[i]]);
-=======
     defineReactive(obj, keys[i]);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   }
 };
 
@@ -1291,22 +939,14 @@ function copyAugment (target, src, keys) {
  * or the existing observer if the value already has one.
  */
 function observe (value, asRootData) {
-<<<<<<< HEAD
-  if (!isObject(value)) {
-=======
   if (!isObject(value) || value instanceof VNode) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     return
   }
   var ob;
   if (hasOwn(value, '__ob__') && value.__ob__ instanceof Observer) {
     ob = value.__ob__;
   } else if (
-<<<<<<< HEAD
-    observerState.shouldConvert &&
-=======
     shouldObserve &&
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     !isServerRendering() &&
     (Array.isArray(value) || isPlainObject(value)) &&
     Object.isExtensible(value) &&
@@ -1323,11 +963,7 @@ function observe (value, asRootData) {
 /**
  * Define a reactive property on an Object.
  */
-<<<<<<< HEAD
-function defineReactive$$1 (
-=======
 function defineReactive (
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   obj,
   key,
   val,
@@ -1343,12 +979,9 @@ function defineReactive (
 
   // cater for pre-defined getter/setters
   var getter = property && property.get;
-<<<<<<< HEAD
-=======
   if (!getter && arguments.length === 2) {
     val = obj[key];
   }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   var setter = property && property.set;
 
   var childOb = !shallow && observe(val);
@@ -1361,15 +994,9 @@ function defineReactive (
         dep.depend();
         if (childOb) {
           childOb.dep.depend();
-<<<<<<< HEAD
-        }
-        if (Array.isArray(value)) {
-          dependArray(value);
-=======
           if (Array.isArray(value)) {
             dependArray(value);
           }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
         }
       }
       return value
@@ -1401,25 +1028,17 @@ function defineReactive (
  * already exist.
  */
 function set (target, key, val) {
-<<<<<<< HEAD
-=======
   if ("development" !== 'production' &&
-    !Array.isArray(target) &&
-    !isObject(target)
+    (isUndef(target) || isPrimitive(target))
   ) {
-    warn(("Cannot set reactive property on non-object/array value: " + target));
+    warn(("Cannot set reactive property on undefined, null, or primitive value: " + ((target))));
   }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   if (Array.isArray(target) && isValidArrayIndex(key)) {
     target.length = Math.max(target.length, key);
     target.splice(key, 1, val);
     return val
   }
-<<<<<<< HEAD
-  if (hasOwn(target, key)) {
-=======
   if (key in target && !(key in Object.prototype)) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     target[key] = val;
     return val
   }
@@ -1435,11 +1054,7 @@ function set (target, key, val) {
     target[key] = val;
     return val
   }
-<<<<<<< HEAD
-  defineReactive$$1(ob.value, key, val);
-=======
   defineReactive(ob.value, key, val);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   ob.dep.notify();
   return val
 }
@@ -1448,15 +1063,11 @@ function set (target, key, val) {
  * Delete a property and trigger change if necessary.
  */
 function del (target, key) {
-<<<<<<< HEAD
-=======
   if ("development" !== 'production' &&
-    !Array.isArray(target) &&
-    !isObject(target)
+    (isUndef(target) || isPrimitive(target))
   ) {
-    warn(("Cannot delete reactive property on non-object/array value: " + target));
+    warn(("Cannot delete reactive property on undefined, null, or primitive value: " + ((target))));
   }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   if (Array.isArray(target) && isValidArrayIndex(key)) {
     target.splice(key, 1);
     return
@@ -1560,21 +1171,6 @@ function mergeDataOrFn (
     // it has to be a function to pass previous merges.
     return function mergedDataFn () {
       return mergeData(
-<<<<<<< HEAD
-        typeof childVal === 'function' ? childVal.call(this) : childVal,
-        parentVal.call(this)
-      )
-    }
-  } else if (parentVal || childVal) {
-    return function mergedInstanceDataFn () {
-      // instance merge
-      var instanceData = typeof childVal === 'function'
-        ? childVal.call(vm)
-        : childVal;
-      var defaultData = typeof parentVal === 'function'
-        ? parentVal.call(vm)
-        : undefined;
-=======
         typeof childVal === 'function' ? childVal.call(this, this) : childVal,
         typeof parentVal === 'function' ? parentVal.call(this, this) : parentVal
       )
@@ -1588,7 +1184,6 @@ function mergeDataOrFn (
       var defaultData = typeof parentVal === 'function'
         ? parentVal.call(vm, vm)
         : parentVal;
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       if (instanceData) {
         return mergeData(instanceData, defaultData)
       } else {
@@ -1614,11 +1209,7 @@ strats.data = function (
 
       return parentVal
     }
-<<<<<<< HEAD
-    return mergeDataOrFn.call(this, parentVal, childVal)
-=======
     return mergeDataOrFn(parentVal, childVal)
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   }
 
   return mergeDataOrFn(parentVal, childVal, vm)
@@ -1651,13 +1242,6 @@ LIFECYCLE_HOOKS.forEach(function (hook) {
  * a three-way merge between constructor options, instance
  * options and parent options.
  */
-<<<<<<< HEAD
-function mergeAssets (parentVal, childVal) {
-  var res = Object.create(parentVal || null);
-  return childVal
-    ? extend(res, childVal)
-    : res
-=======
 function mergeAssets (
   parentVal,
   childVal,
@@ -1671,7 +1255,6 @@ function mergeAssets (
   } else {
     return res
   }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 }
 
 ASSET_TYPES.forEach(function (type) {
@@ -1684,33 +1267,17 @@ ASSET_TYPES.forEach(function (type) {
  * Watchers hashes should not overwrite one
  * another, so we merge them as arrays.
  */
-<<<<<<< HEAD
-strats.watch = function (parentVal, childVal) {
-=======
 strats.watch = function (
   parentVal,
   childVal,
   vm,
   key
 ) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   // work around Firefox's Object.prototype.watch...
   if (parentVal === nativeWatch) { parentVal = undefined; }
   if (childVal === nativeWatch) { childVal = undefined; }
   /* istanbul ignore if */
   if (!childVal) { return Object.create(parentVal || null) }
-<<<<<<< HEAD
-  if (!parentVal) { return childVal }
-  var ret = {};
-  extend(ret, parentVal);
-  for (var key in childVal) {
-    var parent = ret[key];
-    var child = childVal[key];
-    if (parent && !Array.isArray(parent)) {
-      parent = [parent];
-    }
-    ret[key] = parent
-=======
   {
     assertObjectType(key, childVal, vm);
   }
@@ -1724,7 +1291,6 @@ strats.watch = function (
       parent = [parent];
     }
     ret[key$1] = parent
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       ? parent.concat(child)
       : Array.isArray(child) ? child : [child];
   }
@@ -1737,14 +1303,6 @@ strats.watch = function (
 strats.props =
 strats.methods =
 strats.inject =
-<<<<<<< HEAD
-strats.computed = function (parentVal, childVal) {
-  if (!childVal) { return Object.create(parentVal || null) }
-  if (!parentVal) { return childVal }
-  var ret = Object.create(null);
-  extend(ret, parentVal);
-  extend(ret, childVal);
-=======
 strats.computed = function (
   parentVal,
   childVal,
@@ -1758,7 +1316,6 @@ strats.computed = function (
   var ret = Object.create(null);
   extend(ret, parentVal);
   if (childVal) { extend(ret, childVal); }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   return ret
 };
 strats.provide = mergeDataOrFn;
@@ -1777,15 +1334,6 @@ var defaultStrat = function (parentVal, childVal) {
  */
 function checkComponents (options) {
   for (var key in options.components) {
-<<<<<<< HEAD
-    var lower = key.toLowerCase();
-    if (isBuiltInTag(lower) || config.isReservedTag(lower)) {
-      warn(
-        'Do not use built-in or reserved HTML elements as component ' +
-        'id: ' + key
-      );
-    }
-=======
     validateComponentName(key);
   }
 }
@@ -1803,7 +1351,6 @@ function validateComponentName (name) {
       'Do not use built-in or reserved HTML elements as component ' +
       'id: ' + name
     );
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   }
 }
 
@@ -1811,11 +1358,7 @@ function validateComponentName (name) {
  * Ensure all props option syntax are normalized into the
  * Object-based format.
  */
-<<<<<<< HEAD
-function normalizeProps (options) {
-=======
 function normalizeProps (options, vm) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   var props = options.props;
   if (!props) { return }
   var res = {};
@@ -1839,15 +1382,12 @@ function normalizeProps (options, vm) {
         ? val
         : { type: val };
     }
-<<<<<<< HEAD
-=======
   } else {
     warn(
       "Invalid value for option \"props\": expected an Array or an Object, " +
       "but got " + (toRawType(props)) + ".",
       vm
     );
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   }
   options.props = res;
 }
@@ -1855,15 +1395,6 @@ function normalizeProps (options, vm) {
 /**
  * Normalize all injections into Object-based format
  */
-<<<<<<< HEAD
-function normalizeInject (options) {
-  var inject = options.inject;
-  if (Array.isArray(inject)) {
-    var normalized = options.inject = {};
-    for (var i = 0; i < inject.length; i++) {
-      normalized[inject[i]] = inject[i];
-    }
-=======
 function normalizeInject (options, vm) {
   var inject = options.inject;
   if (!inject) { return }
@@ -1885,7 +1416,6 @@ function normalizeInject (options, vm) {
       "but got " + (toRawType(inject)) + ".",
       vm
     );
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   }
 }
 
@@ -1904,8 +1434,6 @@ function normalizeDirectives (options) {
   }
 }
 
-<<<<<<< HEAD
-=======
 function assertObjectType (name, value, vm) {
   if (!isPlainObject(value)) {
     warn(
@@ -1916,7 +1444,6 @@ function assertObjectType (name, value, vm) {
   }
 }
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 /**
  * Merge two option objects into a new one.
  * Core utility used in both instantiation and inheritance.
@@ -1934,13 +1461,8 @@ function mergeOptions (
     child = child.options;
   }
 
-<<<<<<< HEAD
-  normalizeProps(child);
-  normalizeInject(child);
-=======
   normalizeProps(child, vm);
   normalizeInject(child, vm);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   normalizeDirectives(child);
   var extendsFrom = child.extends;
   if (extendsFrom) {
@@ -2012,14 +1534,6 @@ function validateProp (
   var prop = propOptions[key];
   var absent = !hasOwn(propsData, key);
   var value = propsData[key];
-<<<<<<< HEAD
-  // handle boolean props
-  if (isType(Boolean, prop.type)) {
-    if (absent && !hasOwn(prop, 'default')) {
-      value = false;
-    } else if (!isType(String, prop.type) && (value === '' || value === hyphenate(key))) {
-      value = true;
-=======
   // boolean casting
   var booleanIndex = getTypeIndex(Boolean, prop.type);
   if (booleanIndex > -1) {
@@ -2032,7 +1546,6 @@ function validateProp (
       if (stringIndex < 0 || booleanIndex < stringIndex) {
         value = true;
       }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     }
   }
   // check default value
@@ -2040,17 +1553,10 @@ function validateProp (
     value = getPropDefaultValue(vm, prop, key);
     // since the default value is a fresh copy,
     // make sure to observe it.
-<<<<<<< HEAD
-    var prevShouldConvert = observerState.shouldConvert;
-    observerState.shouldConvert = true;
-    observe(value);
-    observerState.shouldConvert = prevShouldConvert;
-=======
     var prevShouldObserve = shouldObserve;
     toggleObserving(true);
     observe(value);
     toggleObserving(prevShouldObserve);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   }
   {
     assertProp(prop, key, value, vm, absent);
@@ -2126,15 +1632,9 @@ function assertProp (
   }
   if (!valid) {
     warn(
-<<<<<<< HEAD
-      'Invalid prop: type check failed for prop "' + name + '".' +
-      ' Expected ' + expectedTypes.map(capitalize).join(', ') +
-      ', got ' + Object.prototype.toString.call(value).slice(8, -1) + '.',
-=======
       "Invalid prop: type check failed for prop \"" + name + "\"." +
       " Expected " + (expectedTypes.map(capitalize).join(', ')) +
       ", got " + (toRawType(value)) + ".",
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       vm
     );
     return
@@ -2156,16 +1656,12 @@ function assertType (value, type) {
   var valid;
   var expectedType = getType(type);
   if (simpleCheckRE.test(expectedType)) {
-<<<<<<< HEAD
-    valid = typeof value === expectedType.toLowerCase();
-=======
     var t = typeof value;
     valid = t === expectedType.toLowerCase();
     // for primitive wrapper objects
     if (!valid && t === 'object') {
       valid = value instanceof type;
     }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   } else if (expectedType === 'Object') {
     valid = isPlainObject(value);
   } else if (expectedType === 'Array') {
@@ -2189,19 +1685,6 @@ function getType (fn) {
   return match ? match[1] : ''
 }
 
-<<<<<<< HEAD
-function isType (type, fn) {
-  if (!Array.isArray(fn)) {
-    return getType(fn) === getType(type)
-  }
-  for (var i = 0, len = fn.length; i < len; i++) {
-    if (getType(fn[i]) === getType(type)) {
-      return true
-    }
-  }
-  /* istanbul ignore next */
-  return false
-=======
 function isSameType (a, b) {
   return getType(a) === getType(b)
 }
@@ -2375,7 +1858,6 @@ function nextTick (cb, ctx) {
       _resolve = resolve;
     })
   }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 }
 
 /*  */
@@ -2418,32 +1900,19 @@ var initProxy;
   var warnNonPresent = function (target, key) {
     warn(
       "Property or method \"" + key + "\" is not defined on the instance but " +
-<<<<<<< HEAD
-      "referenced during render. Make sure to declare reactive data " +
-      "properties in the data option.",
-=======
       'referenced during render. Make sure that this property is reactive, ' +
       'either in the data option, or for class-based components, by ' +
       'initializing the property. ' +
       'See: https://vuejs.org/v2/guide/reactivity.html#Declaring-Reactive-Properties.',
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       target
     );
   };
 
   var hasProxy =
-<<<<<<< HEAD
-    typeof Proxy !== 'undefined' &&
-    Proxy.toString().match(/native code/);
-
-  if (hasProxy) {
-    var isBuiltInModifier = makeMap('stop,prevent,self,ctrl,shift,alt,meta');
-=======
     typeof Proxy !== 'undefined' && isNative(Proxy);
 
   if (hasProxy) {
     var isBuiltInModifier = makeMap('stop,prevent,self,ctrl,shift,alt,meta,exact');
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     config.keyCodes = new Proxy(config.keyCodes, {
       set: function set (target, key, value) {
         if (isBuiltInModifier(key)) {
@@ -2493,94 +1962,6 @@ var initProxy;
 
 /*  */
 
-<<<<<<< HEAD
-var VNode = function VNode (
-  tag,
-  data,
-  children,
-  text,
-  elm,
-  context,
-  componentOptions,
-  asyncFactory
-) {
-  this.tag = tag;
-  this.data = data;
-  this.children = children;
-  this.text = text;
-  this.elm = elm;
-  this.ns = undefined;
-  this.context = context;
-  this.functionalContext = undefined;
-  this.key = data && data.key;
-  this.componentOptions = componentOptions;
-  this.componentInstance = undefined;
-  this.parent = undefined;
-  this.raw = false;
-  this.isStatic = false;
-  this.isRootInsert = true;
-  this.isComment = false;
-  this.isCloned = false;
-  this.isOnce = false;
-  this.asyncFactory = asyncFactory;
-  this.asyncMeta = undefined;
-  this.isAsyncPlaceholder = false;
-};
-
-var prototypeAccessors = { child: {} };
-
-// DEPRECATED: alias for componentInstance for backwards compat.
-/* istanbul ignore next */
-prototypeAccessors.child.get = function () {
-  return this.componentInstance
-};
-
-Object.defineProperties( VNode.prototype, prototypeAccessors );
-
-var createEmptyVNode = function (text) {
-  if ( text === void 0 ) text = '';
-
-  var node = new VNode();
-  node.text = text;
-  node.isComment = true;
-  return node
-};
-
-function createTextVNode (val) {
-  return new VNode(undefined, undefined, undefined, String(val))
-}
-
-// optimized shallow clone
-// used for static nodes and slot nodes because they may be reused across
-// multiple renders, cloning them avoids errors when DOM manipulations rely
-// on their elm reference.
-function cloneVNode (vnode) {
-  var cloned = new VNode(
-    vnode.tag,
-    vnode.data,
-    vnode.children,
-    vnode.text,
-    vnode.elm,
-    vnode.context,
-    vnode.componentOptions,
-    vnode.asyncFactory
-  );
-  cloned.ns = vnode.ns;
-  cloned.isStatic = vnode.isStatic;
-  cloned.key = vnode.key;
-  cloned.isComment = vnode.isComment;
-  cloned.isCloned = true;
-  return cloned
-}
-
-function cloneVNodes (vnodes) {
-  var len = vnodes.length;
-  var res = new Array(len);
-  for (var i = 0; i < len; i++) {
-    res[i] = cloneVNode(vnodes[i]);
-  }
-  return res
-=======
 var seenObjects = new _Set();
 
 /**
@@ -2614,7 +1995,6 @@ function _traverse (val, seen) {
     i = keys.length;
     while (i--) { _traverse(val[keys[i]], seen); }
   }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 }
 
 /*  */
@@ -2660,20 +2040,12 @@ function updateListeners (
   remove$$1,
   vm
 ) {
-<<<<<<< HEAD
-  var name, cur, old, event;
-  for (name in on) {
-    cur = on[name];
-    old = oldOn[name];
-    event = normalizeEvent(name);
-=======
   var name, def, cur, old, event;
   for (name in on) {
     def = cur = on[name];
     old = oldOn[name];
     event = normalizeEvent(name);
     /* istanbul ignore if */
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     if (isUndef(cur)) {
       "development" !== 'production' && warn(
         "Invalid handler for event \"" + (event.name) + "\": got " + String(cur),
@@ -2683,11 +2055,7 @@ function updateListeners (
       if (isUndef(cur.fns)) {
         cur = on[name] = createFnInvoker(cur);
       }
-<<<<<<< HEAD
-      add(event.name, cur, event.once, event.capture, event.passive);
-=======
       add(event.name, cur, event.once, event.capture, event.passive, event.params);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     } else if (cur !== old) {
       old.fns = cur;
       on[name] = old;
@@ -2704,12 +2072,9 @@ function updateListeners (
 /*  */
 
 function mergeVNodeHook (def, hookKey, hook) {
-<<<<<<< HEAD
-=======
   if (def instanceof VNode) {
     def = def.data.hook || (def.data.hook = {});
   }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   var invoker;
   var oldHook = def[hookKey];
 
@@ -2848,16 +2213,6 @@ function isTextNode (node) {
 
 function normalizeArrayChildren (children, nestedIndex) {
   var res = [];
-<<<<<<< HEAD
-  var i, c, last;
-  for (i = 0; i < children.length; i++) {
-    c = children[i];
-    if (isUndef(c) || typeof c === 'boolean') { continue }
-    last = res[res.length - 1];
-    //  nested
-    if (Array.isArray(c)) {
-      res.push.apply(res, normalizeArrayChildren(c, ((nestedIndex || '') + "_" + i)));
-=======
   var i, c, lastIndex, last;
   for (i = 0; i < children.length; i++) {
     c = children[i];
@@ -2875,17 +2230,12 @@ function normalizeArrayChildren (children, nestedIndex) {
         }
         res.push.apply(res, c);
       }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     } else if (isPrimitive(c)) {
       if (isTextNode(last)) {
         // merge adjacent text nodes
         // this is necessary for SSR hydration because text nodes are
         // essentially merged when rendered to HTML strings
-<<<<<<< HEAD
-        (last).text += String(c);
-=======
         res[lastIndex] = createTextVNode(last.text + c);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       } else if (c !== '') {
         // convert primitive to vnode
         res.push(createTextVNode(c));
@@ -2893,11 +2243,7 @@ function normalizeArrayChildren (children, nestedIndex) {
     } else {
       if (isTextNode(c) && isTextNode(last)) {
         // merge adjacent text nodes
-<<<<<<< HEAD
-        res[res.length - 1] = createTextVNode(last.text + c.text);
-=======
         res[lastIndex] = createTextVNode(last.text + c.text);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       } else {
         // default key for nested array children (likely generated by v-for)
         if (isTrue(children._isVList) &&
@@ -2916,14 +2262,10 @@ function normalizeArrayChildren (children, nestedIndex) {
 /*  */
 
 function ensureCtor (comp, base) {
-<<<<<<< HEAD
-  if (comp.__esModule && comp.default) {
-=======
   if (
     comp.__esModule ||
     (hasSymbol && comp[Symbol.toStringTag] === 'Module')
   ) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     comp = comp.default;
   }
   return isObject(comp)
@@ -3046,24 +2388,17 @@ function resolveAsyncComponent (
 
 /*  */
 
-<<<<<<< HEAD
-=======
 function isAsyncPlaceholder (node) {
   return node.isComment && node.asyncFactory
 }
 
 /*  */
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 function getFirstComponentChild (children) {
   if (Array.isArray(children)) {
     for (var i = 0; i < children.length; i++) {
       var c = children[i];
-<<<<<<< HEAD
-      if (isDef(c) && isDef(c.componentOptions)) {
-=======
       if (isDef(c) && (isDef(c.componentOptions) || isAsyncPlaceholder(c))) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
         return c
       }
     }
@@ -3086,13 +2421,8 @@ function initEvents (vm) {
 
 var target;
 
-<<<<<<< HEAD
-function add (event, fn, once$$1) {
-  if (once$$1) {
-=======
 function add (event, fn, once) {
   if (once) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     target.$once(event, fn);
   } else {
     target.$on(event, fn);
@@ -3110,10 +2440,7 @@ function updateComponentListeners (
 ) {
   target = vm;
   updateListeners(listeners, oldListeners || {}, add, remove$1, vm);
-<<<<<<< HEAD
-=======
   target = undefined;
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 }
 
 function eventsMixin (Vue) {
@@ -3159,13 +2486,8 @@ function eventsMixin (Vue) {
     }
     // array of events
     if (Array.isArray(event)) {
-<<<<<<< HEAD
-      for (var i$1 = 0, l = event.length; i$1 < l; i$1++) {
-        this$1.$off(event[i$1], fn);
-=======
       for (var i = 0, l = event.length; i < l; i++) {
         this$1.$off(event[i], fn);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       }
       return vm
     }
@@ -3174,20 +2496,6 @@ function eventsMixin (Vue) {
     if (!cbs) {
       return vm
     }
-<<<<<<< HEAD
-    if (arguments.length === 1) {
-      vm._events[event] = null;
-      return vm
-    }
-    // specific handler
-    var cb;
-    var i = cbs.length;
-    while (i--) {
-      cb = cbs[i];
-      if (cb === fn || cb.fn === fn) {
-        cbs.splice(i, 1);
-        break
-=======
     if (!fn) {
       vm._events[event] = null;
       return vm
@@ -3202,7 +2510,6 @@ function eventsMixin (Vue) {
           cbs.splice(i$1, 1);
           break
         }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       }
     }
     return vm
@@ -3240,11 +2547,8 @@ function eventsMixin (Vue) {
 
 /*  */
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 /**
  * Runtime helper for resolving raw children VNodes into a slot object.
  */
@@ -3256,20 +2560,6 @@ function resolveSlots (
   if (!children) {
     return slots
   }
-<<<<<<< HEAD
-  var defaultSlot = [];
-  for (var i = 0, l = children.length; i < l; i++) {
-    var child = children[i];
-    // named slots should only be respected if the vnode was rendered in the
-    // same context.
-    if ((child.context === context || child.functionalContext === context) &&
-      child.data && child.data.slot != null
-    ) {
-      var name = child.data.slot;
-      var slot = (slots[name] || (slots[name] = []));
-      if (child.tag === 'template') {
-        slot.push.apply(slot, child.children);
-=======
   for (var i = 0, l = children.length; i < l; i++) {
     var child = children[i];
     var data = child.data;
@@ -3286,19 +2576,10 @@ function resolveSlots (
       var slot = (slots[name] || (slots[name] = []));
       if (child.tag === 'template') {
         slot.push.apply(slot, child.children || []);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       } else {
         slot.push(child);
       }
     } else {
-<<<<<<< HEAD
-      defaultSlot.push(child);
-    }
-  }
-  // ignore whitespace
-  if (!defaultSlot.every(isWhitespace)) {
-    slots.default = defaultSlot;
-=======
       (slots.default || (slots.default = [])).push(child);
     }
   }
@@ -3307,17 +2588,12 @@ function resolveSlots (
     if (slots[name$1].every(isWhitespace)) {
       delete slots[name$1];
     }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   }
   return slots
 }
 
 function isWhitespace (node) {
-<<<<<<< HEAD
-  return node.isComment || node.text === ' '
-=======
   return (node.isComment && !node.asyncFactory) || node.text === ' '
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 }
 
 function resolveScopedSlots (
@@ -3453,13 +2729,10 @@ function lifecycleMixin (Vue) {
     if (vm.$el) {
       vm.$el.__vue__ = null;
     }
-<<<<<<< HEAD
-=======
     // release circular reference (#6759)
     if (vm.$vnode) {
       vm.$vnode.parent = null;
     }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   };
 }
 
@@ -3503,20 +2776,12 @@ function mountComponent (
       mark(startTag);
       var vnode = vm._render();
       mark(endTag);
-<<<<<<< HEAD
-      measure((name + " render"), startTag, endTag);
-=======
       measure(("vue " + name + " render"), startTag, endTag);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
       mark(startTag);
       vm._update(vnode, hydrating);
       mark(endTag);
-<<<<<<< HEAD
-      measure((name + " patch"), startTag, endTag);
-=======
       measure(("vue " + name + " patch"), startTag, endTag);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     };
   } else {
     updateComponent = function () {
@@ -3524,14 +2789,10 @@ function mountComponent (
     };
   }
 
-<<<<<<< HEAD
-  vm._watcher = new Watcher(vm, updateComponent, noop);
-=======
   // we set this to vm._watcher inside the watcher's constructor
   // since the watcher's initial patch may call $forceUpdate (e.g. inside child
   // component's mounted hook), which relies on vm._watcher being already defined
   new Watcher(vm, updateComponent, noop, null, true /* isRenderWatcher */);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   hydrating = false;
 
   // manually mounted instance, call mounted on self
@@ -3571,17 +2832,6 @@ function updateChildComponent (
   }
   vm.$options._renderChildren = renderChildren;
 
-<<<<<<< HEAD
-  // update $attrs and $listensers hash
-  // these are also reactive so they may trigger child update if the child
-  // used them during render
-  vm.$attrs = parentVnode.data && parentVnode.data.attrs;
-  vm.$listeners = listeners;
-
-  // update props
-  if (propsData && vm.$options.props) {
-    observerState.shouldConvert = false;
-=======
   // update $attrs and $listeners hash
   // these are also reactive so they may trigger child update if the child
   // used them during render
@@ -3591,39 +2841,24 @@ function updateChildComponent (
   // update props
   if (propsData && vm.$options.props) {
     toggleObserving(false);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     var props = vm._props;
     var propKeys = vm.$options._propKeys || [];
     for (var i = 0; i < propKeys.length; i++) {
       var key = propKeys[i];
-<<<<<<< HEAD
-      props[key] = validateProp(key, vm.$options.props, propsData, vm);
-    }
-    observerState.shouldConvert = true;
-=======
       var propOptions = vm.$options.props; // wtf flow?
       props[key] = validateProp(key, propOptions, propsData, vm);
     }
     toggleObserving(true);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     // keep a copy of raw propsData
     vm.$options.propsData = propsData;
   }
 
   // update listeners
-<<<<<<< HEAD
-  if (listeners) {
-    var oldListeners = vm.$options._parentListeners;
-    vm.$options._parentListeners = listeners;
-    updateComponentListeners(vm, listeners, oldListeners);
-  }
-=======
   listeners = listeners || emptyObject;
   var oldListeners = vm.$options._parentListeners;
   vm.$options._parentListeners = listeners;
   updateComponentListeners(vm, listeners, oldListeners);
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   // resolve slots + force update if has children
   if (hasChildren) {
     vm.$slots = resolveSlots(renderChildren, parentVnode.context);
@@ -3677,11 +2912,8 @@ function deactivateChildComponent (vm, direct) {
 }
 
 function callHook (vm, hook) {
-<<<<<<< HEAD
-=======
   // #7573 disable dep collection when invoking lifecycle hooks
   pushTarget();
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   var handlers = vm.$options[hook];
   if (handlers) {
     for (var i = 0, j = handlers.length; i < j; i++) {
@@ -3695,10 +2927,7 @@ function callHook (vm, hook) {
   if (vm._hasHookEvent) {
     vm.$emit('hook:' + hook);
   }
-<<<<<<< HEAD
-=======
   popTarget();
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 }
 
 /*  */
@@ -3843,11 +3072,7 @@ function queueWatcher (watcher) {
 
 /*  */
 
-<<<<<<< HEAD
-var uid$2 = 0;
-=======
 var uid$1 = 0;
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
 /**
  * A watcher parses an expression, collects dependencies,
@@ -3858,11 +3083,6 @@ var Watcher = function Watcher (
   vm,
   expOrFn,
   cb,
-<<<<<<< HEAD
-  options
-) {
-  this.vm = vm;
-=======
   options,
   isRenderWatcher
 ) {
@@ -3870,7 +3090,6 @@ var Watcher = function Watcher (
   if (isRenderWatcher) {
     vm._watcher = this;
   }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   vm._watchers.push(this);
   // options
   if (options) {
@@ -3882,11 +3101,7 @@ var Watcher = function Watcher (
     this.deep = this.user = this.lazy = this.sync = false;
   }
   this.cb = cb;
-<<<<<<< HEAD
-  this.id = ++uid$2; // uid for batching
-=======
   this.id = ++uid$1; // uid for batching
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   this.active = true;
   this.dirty = this.lazy; // for lazy watchers
   this.deps = [];
@@ -4066,43 +3281,6 @@ Watcher.prototype.teardown = function teardown () {
   }
 };
 
-<<<<<<< HEAD
-/**
- * Recursively traverse an object to evoke all converted
- * getters, so that every nested property inside the object
- * is collected as a "deep" dependency.
- */
-var seenObjects = new _Set();
-function traverse (val) {
-  seenObjects.clear();
-  _traverse(val, seenObjects);
-}
-
-function _traverse (val, seen) {
-  var i, keys;
-  var isA = Array.isArray(val);
-  if ((!isA && !isObject(val)) || !Object.isExtensible(val)) {
-    return
-  }
-  if (val.__ob__) {
-    var depId = val.__ob__.dep.id;
-    if (seen.has(depId)) {
-      return
-    }
-    seen.add(depId);
-  }
-  if (isA) {
-    i = val.length;
-    while (i--) { _traverse(val[i], seen); }
-  } else {
-    keys = Object.keys(val);
-    i = keys.length;
-    while (i--) { _traverse(val[keys[i]], seen); }
-  }
-}
-
-=======
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 /*  */
 
 var sharedPropertyDefinition = {
@@ -4138,19 +3316,6 @@ function initState (vm) {
   }
 }
 
-<<<<<<< HEAD
-function checkOptionType (vm, name) {
-  var option = vm.$options[name];
-  if (!isPlainObject(option)) {
-    warn(
-      ("component option \"" + name + "\" should be an object."),
-      vm
-    );
-  }
-}
-
-=======
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 function initProps (vm, propsOptions) {
   var propsData = vm.$options.propsData || {};
   var props = vm._props = {};
@@ -4159,27 +3324,14 @@ function initProps (vm, propsOptions) {
   var keys = vm.$options._propKeys = [];
   var isRoot = !vm.$parent;
   // root instance props should be converted
-<<<<<<< HEAD
-  observerState.shouldConvert = isRoot;
-=======
   if (!isRoot) {
     toggleObserving(false);
   }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   var loop = function ( key ) {
     keys.push(key);
     var value = validateProp(key, propsOptions, propsData, vm);
     /* istanbul ignore else */
     {
-<<<<<<< HEAD
-      if (isReservedAttribute(key) || config.isReservedAttr(key)) {
-        warn(
-          ("\"" + key + "\" is a reserved attribute and cannot be used as component prop."),
-          vm
-        );
-      }
-      defineReactive$$1(props, key, value, function () {
-=======
       var hyphenatedKey = hyphenate(key);
       if (isReservedAttribute(hyphenatedKey) ||
           config.isReservedAttr(hyphenatedKey)) {
@@ -4189,7 +3341,6 @@ function initProps (vm, propsOptions) {
         );
       }
       defineReactive(props, key, value, function () {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
         if (vm.$parent && !isUpdatingChildComponent) {
           warn(
             "Avoid mutating a prop directly since the value will be " +
@@ -4210,11 +3361,7 @@ function initProps (vm, propsOptions) {
   };
 
   for (var key in propsOptions) loop( key );
-<<<<<<< HEAD
-  observerState.shouldConvert = true;
-=======
   toggleObserving(true);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 }
 
 function initData (vm) {
@@ -4240,11 +3387,7 @@ function initData (vm) {
     {
       if (methods && hasOwn(methods, key)) {
         warn(
-<<<<<<< HEAD
-          ("method \"" + key + "\" has already been defined as a data property."),
-=======
           ("Method \"" + key + "\" has already been defined as a data property."),
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
           vm
         );
       }
@@ -4264,13 +3407,6 @@ function initData (vm) {
 }
 
 function getData (data, vm) {
-<<<<<<< HEAD
-  try {
-    return data.call(vm)
-  } catch (e) {
-    handleError(e, vm, "data()");
-    return {}
-=======
   // #7573 disable dep collection when invoking data getters
   pushTarget();
   try {
@@ -4280,39 +3416,20 @@ function getData (data, vm) {
     return {}
   } finally {
     popTarget();
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   }
 }
 
 var computedWatcherOptions = { lazy: true };
 
 function initComputed (vm, computed) {
-<<<<<<< HEAD
-  "development" !== 'production' && checkOptionType(vm, 'computed');
-  var watchers = vm._computedWatchers = Object.create(null);
-=======
   // $flow-disable-line
   var watchers = vm._computedWatchers = Object.create(null);
   // computed properties are just getters during SSR
   var isSSR = isServerRendering();
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
   for (var key in computed) {
     var userDef = computed[key];
     var getter = typeof userDef === 'function' ? userDef : userDef.get;
-<<<<<<< HEAD
-    {
-      if (getter === undefined) {
-        warn(
-          ("No getter function has been defined for computed property \"" + key + "\"."),
-          vm
-        );
-        getter = noop;
-      }
-    }
-    // create internal watcher for the computed property.
-    watchers[key] = new Watcher(vm, getter, noop, computedWatcherOptions);
-=======
     if ("development" !== 'production' && getter == null) {
       warn(
         ("Getter is missing for computed property \"" + key + "\"."),
@@ -4329,7 +3446,6 @@ function initComputed (vm, computed) {
         computedWatcherOptions
       );
     }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
     // component-defined computed properties are already defined on the
     // component prototype. We only need to define computed properties defined
@@ -4346,15 +3462,6 @@ function initComputed (vm, computed) {
   }
 }
 
-<<<<<<< HEAD
-function defineComputed (target, key, userDef) {
-  if (typeof userDef === 'function') {
-    sharedPropertyDefinition.get = createComputedGetter(key);
-    sharedPropertyDefinition.set = noop;
-  } else {
-    sharedPropertyDefinition.get = userDef.get
-      ? userDef.cache !== false
-=======
 function defineComputed (
   target,
   key,
@@ -4369,7 +3476,6 @@ function defineComputed (
   } else {
     sharedPropertyDefinition.get = userDef.get
       ? shouldCache && userDef.cache !== false
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
         ? createComputedGetter(key)
         : userDef.get
       : noop;
@@ -4377,8 +3483,6 @@ function defineComputed (
       ? userDef.set
       : noop;
   }
-<<<<<<< HEAD
-=======
   if ("development" !== 'production' &&
       sharedPropertyDefinition.set === noop) {
     sharedPropertyDefinition.set = function () {
@@ -4388,7 +3492,6 @@ function defineComputed (
       );
     };
   }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   Object.defineProperty(target, key, sharedPropertyDefinition);
 }
 
@@ -4408,36 +3511,18 @@ function createComputedGetter (key) {
 }
 
 function initMethods (vm, methods) {
-<<<<<<< HEAD
-  "development" !== 'production' && checkOptionType(vm, 'methods');
-  var props = vm.$options.props;
-  for (var key in methods) {
-    vm[key] = methods[key] == null ? noop : bind(methods[key], vm);
-    {
-      if (methods[key] == null) {
-        warn(
-          "method \"" + key + "\" has an undefined value in the component definition. " +
-=======
   var props = vm.$options.props;
   for (var key in methods) {
     {
       if (methods[key] == null) {
         warn(
           "Method \"" + key + "\" has an undefined value in the component definition. " +
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
           "Did you reference the function correctly?",
           vm
         );
       }
       if (props && hasOwn(props, key)) {
         warn(
-<<<<<<< HEAD
-          ("method \"" + key + "\" has already been defined as a prop."),
-          vm
-        );
-      }
-    }
-=======
           ("Method \"" + key + "\" has already been defined as a prop."),
           vm
         );
@@ -4450,15 +3535,10 @@ function initMethods (vm, methods) {
       }
     }
     vm[key] = methods[key] == null ? noop : bind(methods[key], vm);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   }
 }
 
 function initWatch (vm, watch) {
-<<<<<<< HEAD
-  "development" !== 'production' && checkOptionType(vm, 'watch');
-=======
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   for (var key in watch) {
     var handler = watch[key];
     if (Array.isArray(handler)) {
@@ -4473,11 +3553,7 @@ function initWatch (vm, watch) {
 
 function createWatcher (
   vm,
-<<<<<<< HEAD
-  keyOrFn,
-=======
   expOrFn,
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   handler,
   options
 ) {
@@ -4488,11 +3564,7 @@ function createWatcher (
   if (typeof handler === 'string') {
     handler = vm[handler];
   }
-<<<<<<< HEAD
-  return vm.$watch(keyOrFn, handler, options)
-=======
   return vm.$watch(expOrFn, handler, options)
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 }
 
 function stateMixin (Vue) {
@@ -4556,19 +3628,11 @@ function initProvide (vm) {
 function initInjections (vm) {
   var result = resolveInject(vm.$options.inject, vm);
   if (result) {
-<<<<<<< HEAD
-    observerState.shouldConvert = false;
-    Object.keys(result).forEach(function (key) {
-      /* istanbul ignore else */
-      {
-        defineReactive$$1(vm, key, result[key], function () {
-=======
     toggleObserving(false);
     Object.keys(result).forEach(function (key) {
       /* istanbul ignore else */
       {
         defineReactive(vm, key, result[key], function () {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
           warn(
             "Avoid mutating an injected value directly since the changes will be " +
             "overwritten whenever the provided component re-renders. " +
@@ -4578,11 +3642,7 @@ function initInjections (vm) {
         });
       }
     });
-<<<<<<< HEAD
-    observerState.shouldConvert = true;
-=======
     toggleObserving(true);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   }
 }
 
@@ -4591,17 +3651,6 @@ function resolveInject (inject, vm) {
     // inject is :any because flow is not smart enough to figure out cached
     var result = Object.create(null);
     var keys = hasSymbol
-<<<<<<< HEAD
-        ? Reflect.ownKeys(inject)
-        : Object.keys(inject);
-
-    for (var i = 0; i < keys.length; i++) {
-      var key = keys[i];
-      var provideKey = inject[key];
-      var source = vm;
-      while (source) {
-        if (source._provided && provideKey in source._provided) {
-=======
       ? Reflect.ownKeys(inject).filter(function (key) {
         /* istanbul ignore next */
         return Object.getOwnPropertyDescriptor(inject, key).enumerable
@@ -4614,16 +3663,11 @@ function resolveInject (inject, vm) {
       var source = vm;
       while (source) {
         if (source._provided && hasOwn(source._provided, provideKey)) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
           result[key] = source._provided[provideKey];
           break
         }
         source = source.$parent;
       }
-<<<<<<< HEAD
-      if ("development" !== 'production' && !hasOwn(result, key)) {
-        warn(("Injection \"" + key + "\" not found"), vm);
-=======
       if (!source) {
         if ('default' in inject[key]) {
           var provideDefault = inject[key].default;
@@ -4633,7 +3677,6 @@ function resolveInject (inject, vm) {
         } else {
           warn(("Injection \"" + key + "\" not found"), vm);
         }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       }
     }
     return result
@@ -4642,52 +3685,6 @@ function resolveInject (inject, vm) {
 
 /*  */
 
-<<<<<<< HEAD
-function createFunctionalComponent (
-  Ctor,
-  propsData,
-  data,
-  context,
-  children
-) {
-  var props = {};
-  var propOptions = Ctor.options.props;
-  if (isDef(propOptions)) {
-    for (var key in propOptions) {
-      props[key] = validateProp(key, propOptions, propsData || {});
-    }
-  } else {
-    if (isDef(data.attrs)) { mergeProps(props, data.attrs); }
-    if (isDef(data.props)) { mergeProps(props, data.props); }
-  }
-  // ensure the createElement function in functional components
-  // gets a unique context - this is necessary for correct named slot check
-  var _context = Object.create(context);
-  var h = function (a, b, c, d) { return createElement(_context, a, b, c, d, true); };
-  var vnode = Ctor.options.render.call(null, h, {
-    data: data,
-    props: props,
-    children: children,
-    parent: context,
-    listeners: data.on || {},
-    injections: resolveInject(Ctor.options.inject, context),
-    slots: function () { return resolveSlots(children, context); }
-  });
-  if (vnode instanceof VNode) {
-    vnode.functionalContext = context;
-    vnode.functionalOptions = Ctor.options;
-    if (data.slot) {
-      (vnode.data || (vnode.data = {})).slot = data.slot;
-    }
-  }
-  return vnode
-}
-
-function mergeProps (to, from) {
-  for (var key in from) {
-    to[camelize(key)] = from[key];
-  }
-=======
 /**
  * Runtime helper for rendering v-for lists.
  */
@@ -4718,36 +3715,10 @@ function renderList (
     (ret)._isVList = true;
   }
   return ret
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 }
 
 /*  */
 
-<<<<<<< HEAD
-// hooks to be invoked on component VNodes during patch
-var componentVNodeHooks = {
-  init: function init (
-    vnode,
-    hydrating,
-    parentElm,
-    refElm
-  ) {
-    if (!vnode.componentInstance || vnode.componentInstance._isDestroyed) {
-      var child = vnode.componentInstance = createComponentInstanceForVnode(
-        vnode,
-        activeInstance,
-        parentElm,
-        refElm
-      );
-      child.$mount(hydrating ? vnode.elm : undefined, hydrating);
-    } else if (vnode.data.keepAlive) {
-      // kept-alive components, treat as a patch
-      var mountedNode = vnode; // work around flow
-      componentVNodeHooks.prepatch(mountedNode, mountedNode);
-    }
-  },
-
-=======
 /**
  * Runtime helper for rendering <slot>
  */
@@ -5002,6 +3973,24 @@ function FunctionalRenderContext (
   Ctor
 ) {
   var options = Ctor.options;
+  // ensure the createElement function in functional components
+  // gets a unique context - this is necessary for correct named slot check
+  var contextVm;
+  if (hasOwn(parent, '_uid')) {
+    contextVm = Object.create(parent);
+    // $flow-disable-line
+    contextVm._original = parent;
+  } else {
+    // the context vm passed in is a functional context as well.
+    // in this case we want to make sure we are able to get a hold to the
+    // real context instance.
+    contextVm = parent;
+    // $flow-disable-line
+    parent = parent._original;
+  }
+  var isCompiled = isTrue(options._compiled);
+  var needNormalization = !isCompiled;
+
   this.data = data;
   this.props = props;
   this.children = children;
@@ -5009,12 +3998,6 @@ function FunctionalRenderContext (
   this.listeners = data.on || emptyObject;
   this.injections = resolveInject(options.inject, parent);
   this.slots = function () { return resolveSlots(children, parent); };
-
-  // ensure the createElement function in functional components
-  // gets a unique context - this is necessary for correct named slot check
-  var contextVm = Object.create(parent);
-  var isCompiled = isTrue(options._compiled);
-  var needNormalization = !isCompiled;
 
   // support for compiled functional template
   if (isCompiled) {
@@ -5071,23 +4054,28 @@ function createFunctionalComponent (
   var vnode = options.render.call(null, renderContext._c, renderContext);
 
   if (vnode instanceof VNode) {
-    setFunctionalContextForVNode(vnode, data, contextVm, options);
-    return vnode
+    return cloneAndMarkFunctionalResult(vnode, data, renderContext.parent, options)
   } else if (Array.isArray(vnode)) {
     var vnodes = normalizeChildren(vnode) || [];
+    var res = new Array(vnodes.length);
     for (var i = 0; i < vnodes.length; i++) {
-      setFunctionalContextForVNode(vnodes[i], data, contextVm, options);
+      res[i] = cloneAndMarkFunctionalResult(vnodes[i], data, renderContext.parent, options);
     }
-    return vnodes
+    return res
   }
 }
 
-function setFunctionalContextForVNode (vnode, data, vm, options) {
-  vnode.fnContext = vm;
-  vnode.fnOptions = options;
+function cloneAndMarkFunctionalResult (vnode, data, contextVm, options) {
+  // #7817 clone node before setting fnContext, otherwise if the node is reused
+  // (e.g. it was from a cached normal slot) the fnContext causes named slots
+  // that should not be matched to match.
+  var clone = cloneVNode(vnode);
+  clone.fnContext = contextVm;
+  clone.fnOptions = options;
   if (data.slot) {
-    (vnode.data || (vnode.data = {})).slot = data.slot;
+    (clone.data || (clone.data = {})).slot = data.slot;
   }
+  return clone
 }
 
 function mergeProps (to, from) {
@@ -5117,7 +4105,7 @@ function mergeProps (to, from) {
 
 /*  */
 
-// hooks to be invoked on component VNodes during patch
+// inline hooks to be invoked on component VNodes during patch
 var componentVNodeHooks = {
   init: function init (
     vnode,
@@ -5144,7 +4132,6 @@ var componentVNodeHooks = {
     }
   },
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   prepatch: function prepatch (oldVnode, vnode) {
     var options = vnode.componentOptions;
     var child = vnode.componentInstance = oldVnode.componentInstance;
@@ -5257,17 +4244,12 @@ function createComponent (
     return createFunctionalComponent(Ctor, propsData, data, context, children)
   }
 
-<<<<<<< HEAD
-  // keep listeners
-  var listeners = data.on;
-=======
   // extract listeners, since these needs to be treated as
   // child component listeners instead of DOM listeners
   var listeners = data.on;
   // replace with listeners with .native modifier
   // so it gets processed during parent component patch.
   data.on = data.nativeOn;
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
   if (isTrue(Ctor.options.abstract)) {
     // abstract components do not keep anything
@@ -5281,8 +4263,8 @@ function createComponent (
     }
   }
 
-  // merge component management hooks onto the placeholder node
-  mergeHooks(data);
+  // install component management hooks onto the placeholder node
+  installComponentHooks(data);
 
   // return a placeholder vnode
   var name = Ctor.options.name || tag;
@@ -5292,14 +4274,11 @@ function createComponent (
     { Ctor: Ctor, propsData: propsData, listeners: listeners, tag: tag, children: children },
     asyncFactory
   );
-<<<<<<< HEAD
-=======
 
   // Weex specific: invoke recycle-list optimized @render function for
   // extracting cell-slot template.
   // https://github.com/Hanks10100/weex-native-directive/tree/master/component
   /* istanbul ignore if */
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   return vnode
 }
 
@@ -5309,22 +4288,10 @@ function createComponentInstanceForVnode (
   parentElm,
   refElm
 ) {
-<<<<<<< HEAD
-  var vnodeComponentOptions = vnode.componentOptions;
-  var options = {
-    _isComponent: true,
-    parent: parent,
-    propsData: vnodeComponentOptions.propsData,
-    _componentTag: vnodeComponentOptions.tag,
-    _parentVnode: vnode,
-    _parentListeners: vnodeComponentOptions.listeners,
-    _renderChildren: vnodeComponentOptions.children,
-=======
   var options = {
     _isComponent: true,
     parent: parent,
     _parentVnode: vnode,
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     _parentElm: parentElm || null,
     _refElm: refElm || null
   };
@@ -5334,29 +4301,14 @@ function createComponentInstanceForVnode (
     options.render = inlineTemplate.render;
     options.staticRenderFns = inlineTemplate.staticRenderFns;
   }
-<<<<<<< HEAD
-  return new vnodeComponentOptions.Ctor(options)
-=======
   return new vnode.componentOptions.Ctor(options)
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 }
 
-function mergeHooks (data) {
-  if (!data.hook) {
-    data.hook = {};
-  }
+function installComponentHooks (data) {
+  var hooks = data.hook || (data.hook = {});
   for (var i = 0; i < hooksToMerge.length; i++) {
     var key = hooksToMerge[i];
-    var fromParent = data.hook[key];
-    var ours = componentVNodeHooks[key];
-    data.hook[key] = fromParent ? mergeHook$1(ours, fromParent) : ours;
-  }
-}
-
-function mergeHook$1 (one, two) {
-  return function (a, b, c, d) {
-    one(a, b, c, d);
-    two(a, b, c, d);
+    hooks[key] = componentVNodeHooks[key];
   }
 }
 
@@ -5426,13 +4378,6 @@ function _createElement (
   if ("development" !== 'production' &&
     isDef(data) && isDef(data.key) && !isPrimitive(data.key)
   ) {
-<<<<<<< HEAD
-    warn(
-      'Avoid using non-primitive value as key, ' +
-      'use string/number value instead.',
-      context
-    );
-=======
     {
       warn(
         'Avoid using non-primitive value as key, ' +
@@ -5440,7 +4385,6 @@ function _createElement (
         context
       );
     }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   }
   // support single function children as default scoped slot
   if (Array.isArray(children) &&
@@ -5458,11 +4402,7 @@ function _createElement (
   var vnode, ns;
   if (typeof tag === 'string') {
     var Ctor;
-<<<<<<< HEAD
-    ns = config.getTagNamespace(tag);
-=======
     ns = (context.$vnode && context.$vnode.ns) || config.getTagNamespace(tag);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     if (config.isReservedTag(tag)) {
       // platform built-in elements
       vnode = new VNode(
@@ -5485,266 +4425,17 @@ function _createElement (
     // direct component options / constructor
     vnode = createComponent(tag, data, context, children);
   }
-<<<<<<< HEAD
-  if (isDef(vnode)) {
-    if (ns) { applyNS(vnode, ns); }
-=======
   if (Array.isArray(vnode)) {
     return vnode
   } else if (isDef(vnode)) {
     if (isDef(ns)) { applyNS(vnode, ns); }
     if (isDef(data)) { registerDeepBindings(data); }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     return vnode
   } else {
     return createEmptyVNode()
   }
 }
 
-<<<<<<< HEAD
-function applyNS (vnode, ns) {
-  vnode.ns = ns;
-  if (vnode.tag === 'foreignObject') {
-    // use default namespace inside foreignObject
-    return
-  }
-  if (isDef(vnode.children)) {
-    for (var i = 0, l = vnode.children.length; i < l; i++) {
-      var child = vnode.children[i];
-      if (isDef(child.tag) && isUndef(child.ns)) {
-        applyNS(child, ns);
-      }
-    }
-  }
-}
-
-/*  */
-
-/**
- * Runtime helper for rendering v-for lists.
- */
-function renderList (
-  val,
-  render
-) {
-  var ret, i, l, keys, key;
-  if (Array.isArray(val) || typeof val === 'string') {
-    ret = new Array(val.length);
-    for (i = 0, l = val.length; i < l; i++) {
-      ret[i] = render(val[i], i);
-    }
-  } else if (typeof val === 'number') {
-    ret = new Array(val);
-    for (i = 0; i < val; i++) {
-      ret[i] = render(i + 1, i);
-    }
-  } else if (isObject(val)) {
-    keys = Object.keys(val);
-    ret = new Array(keys.length);
-    for (i = 0, l = keys.length; i < l; i++) {
-      key = keys[i];
-      ret[i] = render(val[key], key, i);
-    }
-  }
-  if (isDef(ret)) {
-    (ret)._isVList = true;
-  }
-  return ret
-}
-
-/*  */
-
-/**
- * Runtime helper for rendering <slot>
- */
-function renderSlot (
-  name,
-  fallback,
-  props,
-  bindObject
-) {
-  var scopedSlotFn = this.$scopedSlots[name];
-  if (scopedSlotFn) { // scoped slot
-    props = props || {};
-    if (bindObject) {
-      props = extend(extend({}, bindObject), props);
-    }
-    return scopedSlotFn(props) || fallback
-  } else {
-    var slotNodes = this.$slots[name];
-    // warn duplicate slot usage
-    if (slotNodes && "development" !== 'production') {
-      slotNodes._rendered && warn(
-        "Duplicate presence of slot \"" + name + "\" found in the same render tree " +
-        "- this will likely cause render errors.",
-        this
-      );
-      slotNodes._rendered = true;
-    }
-    return slotNodes || fallback
-  }
-}
-
-/*  */
-
-/**
- * Runtime helper for resolving filters
- */
-function resolveFilter (id) {
-  return resolveAsset(this.$options, 'filters', id, true) || identity
-}
-
-/*  */
-
-/**
- * Runtime helper for checking keyCodes from config.
- */
-function checkKeyCodes (
-  eventKeyCode,
-  key,
-  builtInAlias
-) {
-  var keyCodes = config.keyCodes[key] || builtInAlias;
-  if (Array.isArray(keyCodes)) {
-    return keyCodes.indexOf(eventKeyCode) === -1
-  } else {
-    return keyCodes !== eventKeyCode
-  }
-}
-
-/*  */
-
-/**
- * Runtime helper for merging v-bind="object" into a VNode's data.
- */
-function bindObjectProps (
-  data,
-  tag,
-  value,
-  asProp,
-  isSync
-) {
-  if (value) {
-    if (!isObject(value)) {
-      "development" !== 'production' && warn(
-        'v-bind without argument expects an Object or Array value',
-        this
-      );
-    } else {
-      if (Array.isArray(value)) {
-        value = toObject(value);
-      }
-      var hash;
-      var loop = function ( key ) {
-        if (
-          key === 'class' ||
-          key === 'style' ||
-          isReservedAttribute(key)
-        ) {
-          hash = data;
-        } else {
-          var type = data.attrs && data.attrs.type;
-          hash = asProp || config.mustUseProp(tag, type, key)
-            ? data.domProps || (data.domProps = {})
-            : data.attrs || (data.attrs = {});
-        }
-        if (!(key in hash)) {
-          hash[key] = value[key];
-
-          if (isSync) {
-            var on = data.on || (data.on = {});
-            on[("update:" + key)] = function ($event) {
-              value[key] = $event;
-            };
-          }
-        }
-      };
-
-      for (var key in value) loop( key );
-    }
-  }
-  return data
-}
-
-/*  */
-
-/**
- * Runtime helper for rendering static trees.
- */
-function renderStatic (
-  index,
-  isInFor
-) {
-  var tree = this._staticTrees[index];
-  // if has already-rendered static tree and not inside v-for,
-  // we can reuse the same tree by doing a shallow clone.
-  if (tree && !isInFor) {
-    return Array.isArray(tree)
-      ? cloneVNodes(tree)
-      : cloneVNode(tree)
-  }
-  // otherwise, render a fresh tree.
-  tree = this._staticTrees[index] =
-    this.$options.staticRenderFns[index].call(this._renderProxy);
-  markStatic(tree, ("__static__" + index), false);
-  return tree
-}
-
-/**
- * Runtime helper for v-once.
- * Effectively it means marking the node as static with a unique key.
- */
-function markOnce (
-  tree,
-  index,
-  key
-) {
-  markStatic(tree, ("__once__" + index + (key ? ("_" + key) : "")), true);
-  return tree
-}
-
-function markStatic (
-  tree,
-  key,
-  isOnce
-) {
-  if (Array.isArray(tree)) {
-    for (var i = 0; i < tree.length; i++) {
-      if (tree[i] && typeof tree[i] !== 'string') {
-        markStaticNode(tree[i], (key + "_" + i), isOnce);
-      }
-    }
-  } else {
-    markStaticNode(tree, key, isOnce);
-  }
-}
-
-function markStaticNode (node, key, isOnce) {
-  node.isStatic = true;
-  node.key = key;
-  node.isOnce = isOnce;
-}
-
-/*  */
-
-function bindObjectListeners (data, value) {
-  if (value) {
-    if (!isPlainObject(value)) {
-      "development" !== 'production' && warn(
-        'v-on without argument expects an Object value',
-        this
-      );
-    } else {
-      var on = data.on = data.on ? extend({}, data.on) : {};
-      for (var key in value) {
-        var existing = on[key];
-        var ours = value[key];
-        on[key] = existing ? [].concat(ours, existing) : ours;
-      }
-    }
-  }
-  return data
-=======
 function applyNS (vnode, ns, force) {
   vnode.ns = ns;
   if (vnode.tag === 'foreignObject') {
@@ -5773,25 +4464,17 @@ function registerDeepBindings (data) {
   if (isObject(data.class)) {
     traverse(data.class);
   }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 }
 
 /*  */
 
 function initRender (vm) {
   vm._vnode = null; // the root of the child tree
-<<<<<<< HEAD
-  vm._staticTrees = null;
-  var parentVnode = vm.$vnode = vm.$options._parentVnode; // the placeholder node in parent tree
-  var renderContext = parentVnode && parentVnode.context;
-  vm.$slots = resolveSlots(vm.$options._renderChildren, renderContext);
-=======
   vm._staticTrees = null; // v-once cached trees
   var options = vm.$options;
   var parentVnode = vm.$vnode = options._parentVnode; // the placeholder node in parent tree
   var renderContext = parentVnode && parentVnode.context;
   vm.$slots = resolveSlots(options._renderChildren, renderContext);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   vm.$scopedSlots = emptyObject;
   // bind the createElement fn to this instance
   // so that we get proper render context inside it.
@@ -5805,14 +4488,6 @@ function initRender (vm) {
   // $attrs & $listeners are exposed for easier HOC creation.
   // they need to be reactive so that HOCs using them are always updated
   var parentData = parentVnode && parentVnode.data;
-<<<<<<< HEAD
-  /* istanbul ignore else */
-  {
-    defineReactive$$1(vm, '$attrs', parentData && parentData.attrs, function () {
-      !isUpdatingChildComponent && warn("$attrs is readonly.", vm);
-    }, true);
-    defineReactive$$1(vm, '$listeners', parentData && parentData.on, function () {
-=======
 
   /* istanbul ignore else */
   {
@@ -5820,19 +4495,15 @@ function initRender (vm) {
       !isUpdatingChildComponent && warn("$attrs is readonly.", vm);
     }, true);
     defineReactive(vm, '$listeners', options._parentListeners || emptyObject, function () {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       !isUpdatingChildComponent && warn("$listeners is readonly.", vm);
     }, true);
   }
 }
 
 function renderMixin (Vue) {
-<<<<<<< HEAD
-=======
   // install runtime convenience helpers
   installRenderHelpers(Vue.prototype);
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   Vue.prototype.$nextTick = function (fn) {
     return nextTick(fn, this)
   };
@@ -5841,23 +4512,6 @@ function renderMixin (Vue) {
     var vm = this;
     var ref = vm.$options;
     var render = ref.render;
-<<<<<<< HEAD
-    var staticRenderFns = ref.staticRenderFns;
-    var _parentVnode = ref._parentVnode;
-
-    if (vm._isMounted) {
-      // clone slot nodes on re-renders
-      for (var key in vm.$slots) {
-        vm.$slots[key] = cloneVNodes(vm.$slots[key]);
-      }
-    }
-
-    vm.$scopedSlots = (_parentVnode && _parentVnode.data.scopedSlots) || emptyObject;
-
-    if (staticRenderFns && !vm._staticTrees) {
-      vm._staticTrees = [];
-    }
-=======
     var _parentVnode = ref._parentVnode;
 
     // reset _rendered flag on slots for duplicate slot check
@@ -5872,7 +4526,6 @@ function renderMixin (Vue) {
       vm.$scopedSlots = _parentVnode.data.scopedSlots || emptyObject;
     }
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     // set parent vnode. this allows render functions to have access
     // to the data on the placeholder node.
     vm.$vnode = _parentVnode;
@@ -5881,20 +4534,11 @@ function renderMixin (Vue) {
     try {
       vnode = render.call(vm._renderProxy, vm.$createElement);
     } catch (e) {
-<<<<<<< HEAD
-      handleError(e, vm, "render function");
-=======
       handleError(e, vm, "render");
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       // return error render result,
       // or previous vnode to prevent render error causing blank component
       /* istanbul ignore else */
       {
-<<<<<<< HEAD
-        vnode = vm.$options.renderError
-          ? vm.$options.renderError.call(vm._renderProxy, vm.$createElement, e)
-          : vm._vnode;
-=======
         if (vm.$options.renderError) {
           try {
             vnode = vm.$options.renderError.call(vm._renderProxy, vm.$createElement, e);
@@ -5905,7 +4549,6 @@ function renderMixin (Vue) {
         } else {
           vnode = vm._vnode;
         }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       }
     }
     // return empty vnode in case the render function errored out
@@ -5923,56 +4566,22 @@ function renderMixin (Vue) {
     vnode.parent = _parentVnode;
     return vnode
   };
-<<<<<<< HEAD
-
-  // internal render helpers.
-  // these are exposed on the instance prototype to reduce generated render
-  // code size.
-  Vue.prototype._o = markOnce;
-  Vue.prototype._n = toNumber;
-  Vue.prototype._s = toString;
-  Vue.prototype._l = renderList;
-  Vue.prototype._t = renderSlot;
-  Vue.prototype._q = looseEqual;
-  Vue.prototype._i = looseIndexOf;
-  Vue.prototype._m = renderStatic;
-  Vue.prototype._f = resolveFilter;
-  Vue.prototype._k = checkKeyCodes;
-  Vue.prototype._b = bindObjectProps;
-  Vue.prototype._v = createTextVNode;
-  Vue.prototype._e = createEmptyVNode;
-  Vue.prototype._u = resolveScopedSlots;
-  Vue.prototype._g = bindObjectListeners;
-=======
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 }
 
 /*  */
 
-<<<<<<< HEAD
-var uid$1 = 0;
-=======
 var uid$3 = 0;
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
 function initMixin (Vue) {
   Vue.prototype._init = function (options) {
     var vm = this;
     // a uid
-<<<<<<< HEAD
-    vm._uid = uid$1++;
-=======
     vm._uid = uid$3++;
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
     var startTag, endTag;
     /* istanbul ignore if */
     if ("development" !== 'production' && config.performance && mark) {
-<<<<<<< HEAD
-      startTag = "vue-perf-init:" + (vm._uid);
-=======
       startTag = "vue-perf-start:" + (vm._uid);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       endTag = "vue-perf-end:" + (vm._uid);
       mark(startTag);
     }
@@ -6011,11 +4620,7 @@ function initMixin (Vue) {
     if ("development" !== 'production' && config.performance && mark) {
       vm._name = formatComponentName(vm, false);
       mark(endTag);
-<<<<<<< HEAD
-      measure(((vm._name) + " init"), startTag, endTag);
-=======
       measure(("vue " + (vm._name) + " init"), startTag, endTag);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     }
 
     if (vm.$options.el) {
@@ -6027,16 +4632,6 @@ function initMixin (Vue) {
 function initInternalComponent (vm, options) {
   var opts = vm.$options = Object.create(vm.constructor.options);
   // doing this because it's faster than dynamic enumeration.
-<<<<<<< HEAD
-  opts.parent = options.parent;
-  opts.propsData = options.propsData;
-  opts._parentVnode = options._parentVnode;
-  opts._parentListeners = options._parentListeners;
-  opts._renderChildren = options._renderChildren;
-  opts._componentTag = options._componentTag;
-  opts._parentElm = options._parentElm;
-  opts._refElm = options._refElm;
-=======
   var parentVnode = options._parentVnode;
   opts.parent = options.parent;
   opts._parentVnode = parentVnode;
@@ -6049,7 +4644,6 @@ function initInternalComponent (vm, options) {
   opts._renderChildren = vnodeComponentOptions.children;
   opts._componentTag = vnodeComponentOptions.tag;
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   if (options.render) {
     opts.render = options.render;
     opts.staticRenderFns = options.staticRenderFns;
@@ -6113,34 +4707,20 @@ function dedupe (latest, extended, sealed) {
   }
 }
 
-<<<<<<< HEAD
-function Vue$3 (options) {
-  if ("development" !== 'production' &&
-    !(this instanceof Vue$3)
-=======
 function Vue (options) {
   if ("development" !== 'production' &&
     !(this instanceof Vue)
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   ) {
     warn('Vue is a constructor and should be called with the `new` keyword');
   }
   this._init(options);
 }
 
-<<<<<<< HEAD
-initMixin(Vue$3);
-stateMixin(Vue$3);
-eventsMixin(Vue$3);
-lifecycleMixin(Vue$3);
-renderMixin(Vue$3);
-=======
 initMixin(Vue);
 stateMixin(Vue);
 eventsMixin(Vue);
 lifecycleMixin(Vue);
 renderMixin(Vue);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
 /*  */
 
@@ -6197,19 +4777,8 @@ function initExtend (Vue) {
     }
 
     var name = extendOptions.name || Super.options.name;
-<<<<<<< HEAD
-    {
-      if (!/^[a-zA-Z][\w-]*$/.test(name)) {
-        warn(
-          'Invalid component name: "' + name + '". Component names ' +
-          'can only contain alphanumeric characters and the hyphen, ' +
-          'and must start with a letter.'
-        );
-      }
-=======
     if ("development" !== 'production' && name) {
       validateComponentName(name);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     }
 
     var Sub = function VueComponent (options) {
@@ -6291,18 +4860,8 @@ function initAssetRegisters (Vue) {
         return this.options[type + 's'][id]
       } else {
         /* istanbul ignore if */
-<<<<<<< HEAD
-        {
-          if (type === 'component' && config.isReservedTag(id)) {
-            warn(
-              'Do not use built-in or reserved HTML elements as component ' +
-              'id: ' + id
-            );
-          }
-=======
         if ("development" !== 'production' && type === 'component') {
           validateComponentName(id);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
         }
         if (type === 'component' && isPlainObject(definition)) {
           definition.name = definition.name || id;
@@ -6320,11 +4879,6 @@ function initAssetRegisters (Vue) {
 
 /*  */
 
-<<<<<<< HEAD
-var patternTypes = [String, RegExp, Array];
-
-=======
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 function getComponentName (opts) {
   return opts && (opts.Ctor.options.name || opts.tag)
 }
@@ -6341,40 +4895,21 @@ function matches (pattern, name) {
   return false
 }
 
-<<<<<<< HEAD
-function pruneCache (cache, current, filter) {
-=======
 function pruneCache (keepAliveInstance, filter) {
   var cache = keepAliveInstance.cache;
   var keys = keepAliveInstance.keys;
   var _vnode = keepAliveInstance._vnode;
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   for (var key in cache) {
     var cachedNode = cache[key];
     if (cachedNode) {
       var name = getComponentName(cachedNode.componentOptions);
       if (name && !filter(name)) {
-<<<<<<< HEAD
-        if (cachedNode !== current) {
-          pruneCacheEntry(cachedNode);
-        }
-        cache[key] = null;
-=======
         pruneCacheEntry(cache, key, keys, _vnode);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       }
     }
   }
 }
 
-<<<<<<< HEAD
-function pruneCacheEntry (vnode) {
-  if (vnode) {
-    vnode.componentInstance.$destroy();
-  }
-}
-
-=======
 function pruneCacheEntry (
   cache,
   key,
@@ -6391,76 +4926,47 @@ function pruneCacheEntry (
 
 var patternTypes = [String, RegExp, Array];
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 var KeepAlive = {
   name: 'keep-alive',
   abstract: true,
 
   props: {
     include: patternTypes,
-<<<<<<< HEAD
-    exclude: patternTypes
-=======
     exclude: patternTypes,
     max: [String, Number]
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   },
 
   created: function created () {
     this.cache = Object.create(null);
-<<<<<<< HEAD
-=======
     this.keys = [];
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   },
 
   destroyed: function destroyed () {
     var this$1 = this;
 
     for (var key in this$1.cache) {
-<<<<<<< HEAD
-      pruneCacheEntry(this$1.cache[key]);
-=======
       pruneCacheEntry(this$1.cache, key, this$1.keys);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     }
   },
 
-  watch: {
-    include: function include (val) {
-<<<<<<< HEAD
-      pruneCache(this.cache, this._vnode, function (name) { return matches(val, name); });
-    },
-    exclude: function exclude (val) {
-      pruneCache(this.cache, this._vnode, function (name) { return !matches(val, name); });
-=======
-      pruneCache(this, function (name) { return matches(val, name); });
-    },
-    exclude: function exclude (val) {
-      pruneCache(this, function (name) { return !matches(val, name); });
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
-    }
+  mounted: function mounted () {
+    var this$1 = this;
+
+    this.$watch('include', function (val) {
+      pruneCache(this$1, function (name) { return matches(val, name); });
+    });
+    this.$watch('exclude', function (val) {
+      pruneCache(this$1, function (name) { return !matches(val, name); });
+    });
   },
 
   render: function render () {
-<<<<<<< HEAD
-    var vnode = getFirstComponentChild(this.$slots.default);
-=======
     var slot = this.$slots.default;
     var vnode = getFirstComponentChild(slot);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     var componentOptions = vnode && vnode.componentOptions;
     if (componentOptions) {
       // check pattern
       var name = getComponentName(componentOptions);
-<<<<<<< HEAD
-      if (name && (
-        (this.include && !matches(this.include, name)) ||
-        (this.exclude && matches(this.exclude, name))
-      )) {
-        return vnode
-      }
-=======
       var ref = this;
       var include = ref.include;
       var exclude = ref.exclude;
@@ -6476,28 +4982,11 @@ var KeepAlive = {
       var ref$1 = this;
       var cache = ref$1.cache;
       var keys = ref$1.keys;
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       var key = vnode.key == null
         // same constructor may get registered as different local components
         // so cid alone is not enough (#3269)
         ? componentOptions.Ctor.cid + (componentOptions.tag ? ("::" + (componentOptions.tag)) : '')
         : vnode.key;
-<<<<<<< HEAD
-      if (this.cache[key]) {
-        vnode.componentInstance = this.cache[key].componentInstance;
-      } else {
-        this.cache[key] = vnode;
-      }
-      vnode.data.keepAlive = true;
-    }
-    return vnode
-  }
-};
-
-var builtInComponents = {
-  KeepAlive: KeepAlive
-};
-=======
       if (cache[key]) {
         vnode.componentInstance = cache[key].componentInstance;
         // make current key freshest
@@ -6521,7 +5010,6 @@ var builtInComponents = {
 var builtInComponents = {
   KeepAlive: KeepAlive
 }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
 /*  */
 
@@ -6545,11 +5033,7 @@ function initGlobalAPI (Vue) {
     warn: warn,
     extend: extend,
     mergeOptions: mergeOptions,
-<<<<<<< HEAD
-    defineReactive: defineReactive$$1
-=======
     defineReactive: defineReactive
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   };
 
   Vue.set = set;
@@ -6573,15 +5057,6 @@ function initGlobalAPI (Vue) {
   initAssetRegisters(Vue);
 }
 
-<<<<<<< HEAD
-initGlobalAPI(Vue$3);
-
-Object.defineProperty(Vue$3.prototype, '$isServer', {
-  get: isServerRendering
-});
-
-Object.defineProperty(Vue$3.prototype, '$ssrContext', {
-=======
 initGlobalAPI(Vue);
 
 Object.defineProperty(Vue.prototype, '$isServer', {
@@ -6589,23 +5064,18 @@ Object.defineProperty(Vue.prototype, '$isServer', {
 });
 
 Object.defineProperty(Vue.prototype, '$ssrContext', {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   get: function get () {
     /* istanbul ignore next */
     return this.$vnode && this.$vnode.ssrContext
   }
 });
 
-<<<<<<< HEAD
-Vue$3.version = '2.4.0';
-=======
 // expose FunctionalRenderContext for ssr runtime helper installation
 Object.defineProperty(Vue, 'FunctionalRenderContext', {
   value: FunctionalRenderContext
 });
 
-Vue.version = '2.5.15';
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
+Vue.version = '2.5.16';
 
 /*  */
 
@@ -6614,11 +5084,7 @@ Vue.version = '2.5.15';
 var isReservedAttr = makeMap('style,class');
 
 // attributes that should be using props for binding
-<<<<<<< HEAD
-var acceptValue = makeMap('input,textarea,option,select');
-=======
 var acceptValue = makeMap('input,textarea,option,select,progress');
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 var mustUseProp = function (tag, type, attr) {
   return (
     (attr === 'value' && acceptValue(tag)) && type !== 'button' ||
@@ -6661,20 +5127,12 @@ function genClassForVnode (vnode) {
   var childNode = vnode;
   while (isDef(childNode.componentInstance)) {
     childNode = childNode.componentInstance._vnode;
-<<<<<<< HEAD
-    if (childNode.data) {
-=======
     if (childNode && childNode.data) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       data = mergeClassData(childNode.data, data);
     }
   }
   while (isDef(parentNode = parentNode.parent)) {
-<<<<<<< HEAD
-    if (parentNode.data) {
-=======
     if (parentNode && parentNode.data) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       data = mergeClassData(data, parentNode.data);
     }
   }
@@ -6815,11 +5273,8 @@ function isUnknownElement (tag) {
   }
 }
 
-<<<<<<< HEAD
-=======
 var isTextInputType = makeMap('text,number,password,search,email,tel,url');
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 /*  */
 
 /**
@@ -6894,13 +5349,8 @@ function setTextContent (node, text) {
   node.textContent = text;
 }
 
-<<<<<<< HEAD
-function setAttribute (node, key, val) {
-  node.setAttribute(key, val);
-=======
 function setStyleScope (node, scopeId) {
   node.setAttribute(scopeId, '');
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 }
 
 
@@ -6916,11 +5366,7 @@ var nodeOps = Object.freeze({
 	nextSibling: nextSibling,
 	tagName: tagName,
 	setTextContent: setTextContent,
-<<<<<<< HEAD
-	setAttribute: setAttribute
-=======
 	setStyleScope: setStyleScope
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 });
 
 /*  */
@@ -6938,19 +5384,11 @@ var ref = {
   destroy: function destroy (vnode) {
     registerRef(vnode, true);
   }
-<<<<<<< HEAD
-};
-
-function registerRef (vnode, isRemoval) {
-  var key = vnode.data.ref;
-  if (!key) { return }
-=======
 }
 
 function registerRef (vnode, isRemoval) {
   var key = vnode.data.ref;
   if (!isDef(key)) { return }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
   var vm = vnode.context;
   var ref = vnode.componentInstance || vnode.elm;
@@ -6983,11 +5421,6 @@ function registerRef (vnode, isRemoval) {
  *
  * modified by Evan You (@yyx990803)
  *
-<<<<<<< HEAD
-
-/*
-=======
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
  * Not type-checking this because this file is perf-critical and the cost
  * of making flow understand it is not worth it.
  */
@@ -7013,21 +5446,12 @@ function sameVnode (a, b) {
   )
 }
 
-<<<<<<< HEAD
-// Some browsers do not support dynamically changing type for <input>
-// so they need to be treated as different nodes
-=======
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 function sameInputType (a, b) {
   if (a.tag !== 'input') { return true }
   var i;
   var typeA = isDef(i = a.data) && isDef(i = i.attrs) && i.type;
   var typeB = isDef(i = b.data) && isDef(i = i.attrs) && i.type;
-<<<<<<< HEAD
-  return typeA === typeB
-=======
   return typeA === typeB || isTextInputType(typeA) && isTextInputType(typeB)
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 }
 
 function createKeyToOldIdx (children, beginIdx, endIdx) {
@@ -7061,15 +5485,6 @@ function createPatchFunction (backend) {
   }
 
   function createRmCb (childElm, listeners) {
-<<<<<<< HEAD
-    function remove$$1 () {
-      if (--remove$$1.listeners === 0) {
-        removeNode(childElm);
-      }
-    }
-    remove$$1.listeners = listeners;
-    return remove$$1
-=======
     function remove () {
       if (--remove.listeners === 0) {
         removeNode(childElm);
@@ -7077,7 +5492,6 @@ function createPatchFunction (backend) {
     }
     remove.listeners = listeners;
     return remove
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   }
 
   function removeNode (el) {
@@ -7088,10 +5502,6 @@ function createPatchFunction (backend) {
     }
   }
 
-<<<<<<< HEAD
-  var inPre = 0;
-  function createElm (vnode, insertedVnodeQueue, parentElm, refElm, nested) {
-=======
   function isUnknownElement$$1 (vnode, inVPre) {
     return (
       !inVPre &&
@@ -7128,7 +5538,6 @@ function createPatchFunction (backend) {
       vnode = ownerArray[index] = cloneVNode(vnode);
     }
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     vnode.isRootInsert = !nested; // for transition enter check
     if (createComponent(vnode, insertedVnodeQueue, parentElm, refElm)) {
       return
@@ -7140,20 +5549,9 @@ function createPatchFunction (backend) {
     if (isDef(tag)) {
       {
         if (data && data.pre) {
-<<<<<<< HEAD
-          inPre++;
-        }
-        if (
-          !inPre &&
-          !vnode.ns &&
-          !(config.ignoredElements.length && config.ignoredElements.indexOf(tag) > -1) &&
-          config.isUnknownElement(tag)
-        ) {
-=======
           creatingElmInVPre++;
         }
         if (isUnknownElement$$1(vnode, creatingElmInVPre)) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
           warn(
             'Unknown custom element: <' + tag + '> - did you ' +
             'register the component correctly? For recursive components, ' +
@@ -7162,10 +5560,7 @@ function createPatchFunction (backend) {
           );
         }
       }
-<<<<<<< HEAD
-=======
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       vnode.elm = vnode.ns
         ? nodeOps.createElementNS(vnode.ns, tag)
         : nodeOps.createElement(tag, vnode);
@@ -7181,11 +5576,7 @@ function createPatchFunction (backend) {
       }
 
       if ("development" !== 'production' && data && data.pre) {
-<<<<<<< HEAD
-        inPre--;
-=======
         creatingElmInVPre--;
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       }
     } else if (isTrue(vnode.isComment)) {
       vnode.elm = nodeOps.createComment(vnode.text);
@@ -7271,13 +5662,6 @@ function createPatchFunction (backend) {
 
   function createChildren (vnode, children, insertedVnodeQueue) {
     if (Array.isArray(children)) {
-<<<<<<< HEAD
-      for (var i = 0; i < children.length; ++i) {
-        createElm(children[i], insertedVnodeQueue, vnode.elm, null, true);
-      }
-    } else if (isPrimitive(vnode.text)) {
-      nodeOps.appendChild(vnode.elm, nodeOps.createTextNode(vnode.text));
-=======
       {
         checkDuplicateKeys(children);
       }
@@ -7286,7 +5670,6 @@ function createPatchFunction (backend) {
       }
     } else if (isPrimitive(vnode.text)) {
       nodeOps.appendChild(vnode.elm, nodeOps.createTextNode(String(vnode.text)));
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     }
   }
 
@@ -7313,14 +5696,6 @@ function createPatchFunction (backend) {
   // of going through the normal attribute patching process.
   function setScope (vnode) {
     var i;
-<<<<<<< HEAD
-    var ancestor = vnode;
-    while (ancestor) {
-      if (isDef(i = ancestor.context) && isDef(i = i.$options._scopeId)) {
-        nodeOps.setAttribute(vnode.elm, i, '');
-      }
-      ancestor = ancestor.parent;
-=======
     if (isDef(i = vnode.fnScopeId)) {
       nodeOps.setStyleScope(vnode.elm, i);
     } else {
@@ -7331,31 +5706,20 @@ function createPatchFunction (backend) {
         }
         ancestor = ancestor.parent;
       }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     }
     // for slot content they should also get the scopeId from the host instance.
     if (isDef(i = activeInstance) &&
       i !== vnode.context &&
-<<<<<<< HEAD
-      isDef(i = i.$options._scopeId)
-    ) {
-      nodeOps.setAttribute(vnode.elm, i, '');
-=======
       i !== vnode.fnContext &&
       isDef(i = i.$options._scopeId)
     ) {
       nodeOps.setStyleScope(vnode.elm, i);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     }
   }
 
   function addVnodes (parentElm, refElm, vnodes, startIdx, endIdx, insertedVnodeQueue) {
     for (; startIdx <= endIdx; ++startIdx) {
-<<<<<<< HEAD
-      createElm(vnodes[startIdx], insertedVnodeQueue, parentElm, refElm);
-=======
       createElm(vnodes[startIdx], insertedVnodeQueue, parentElm, refElm, false, vnodes, startIdx);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     }
   }
 
@@ -7425,24 +5789,17 @@ function createPatchFunction (backend) {
     var newEndIdx = newCh.length - 1;
     var newStartVnode = newCh[0];
     var newEndVnode = newCh[newEndIdx];
-<<<<<<< HEAD
-    var oldKeyToIdx, idxInOld, elmToMove, refElm;
-=======
     var oldKeyToIdx, idxInOld, vnodeToMove, refElm;
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
     // removeOnly is a special flag used only by <transition-group>
     // to ensure removed elements stay in correct relative positions
     // during leaving transitions
     var canMove = !removeOnly;
 
-<<<<<<< HEAD
-=======
     {
       checkDuplicateKeys(newCh);
     }
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     while (oldStartIdx <= oldEndIdx && newStartIdx <= newEndIdx) {
       if (isUndef(oldStartVnode)) {
         oldStartVnode = oldCh[++oldStartIdx]; // Vnode has been moved left
@@ -7468,32 +5825,6 @@ function createPatchFunction (backend) {
         newStartVnode = newCh[++newStartIdx];
       } else {
         if (isUndef(oldKeyToIdx)) { oldKeyToIdx = createKeyToOldIdx(oldCh, oldStartIdx, oldEndIdx); }
-<<<<<<< HEAD
-        idxInOld = isDef(newStartVnode.key) ? oldKeyToIdx[newStartVnode.key] : null;
-        if (isUndef(idxInOld)) { // New element
-          createElm(newStartVnode, insertedVnodeQueue, parentElm, oldStartVnode.elm);
-          newStartVnode = newCh[++newStartIdx];
-        } else {
-          elmToMove = oldCh[idxInOld];
-          /* istanbul ignore if */
-          if ("development" !== 'production' && !elmToMove) {
-            warn(
-              'It seems there are duplicate keys that is causing an update error. ' +
-              'Make sure each v-for item has a unique key.'
-            );
-          }
-          if (sameVnode(elmToMove, newStartVnode)) {
-            patchVnode(elmToMove, newStartVnode, insertedVnodeQueue);
-            oldCh[idxInOld] = undefined;
-            canMove && nodeOps.insertBefore(parentElm, elmToMove.elm, oldStartVnode.elm);
-            newStartVnode = newCh[++newStartIdx];
-          } else {
-            // same key but different element. treat as new element
-            createElm(newStartVnode, insertedVnodeQueue, parentElm, oldStartVnode.elm);
-            newStartVnode = newCh[++newStartIdx];
-          }
-        }
-=======
         idxInOld = isDef(newStartVnode.key)
           ? oldKeyToIdx[newStartVnode.key]
           : findIdxInOld(newStartVnode, oldCh, oldStartIdx, oldEndIdx);
@@ -7511,7 +5842,6 @@ function createPatchFunction (backend) {
           }
         }
         newStartVnode = newCh[++newStartIdx];
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       }
     }
     if (oldStartIdx > oldEndIdx) {
@@ -7522,8 +5852,6 @@ function createPatchFunction (backend) {
     }
   }
 
-<<<<<<< HEAD
-=======
   function checkDuplicateKeys (children) {
     var seenKeys = {};
     for (var i = 0; i < children.length; i++) {
@@ -7549,7 +5877,6 @@ function createPatchFunction (backend) {
     }
   }
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   function patchVnode (oldVnode, vnode, insertedVnodeQueue, removeOnly) {
     if (oldVnode === vnode) {
       return
@@ -7622,29 +5949,6 @@ function createPatchFunction (backend) {
     }
   }
 
-<<<<<<< HEAD
-  var bailed = false;
-  // list of modules that can skip create hook during hydration because they
-  // are already rendered on the client or has no need for initialization
-  var isRenderedModule = makeMap('attrs,style,class,staticClass,staticStyle,key');
-
-  // Note: this is a browser-only function so we can assume elms are DOM nodes.
-  function hydrate (elm, vnode, insertedVnodeQueue) {
-    if (isTrue(vnode.isComment) && isDef(vnode.asyncFactory)) {
-      vnode.elm = elm;
-      vnode.isAsyncPlaceholder = true;
-      return true
-    }
-    {
-      if (!assertNodeMatch(elm, vnode)) {
-        return false
-      }
-    }
-    vnode.elm = elm;
-    var tag = vnode.tag;
-    var data = vnode.data;
-    var children = vnode.children;
-=======
   var hydrationBailed = false;
   // list of modules that can skip create hook during hydration because they
   // are already rendered on the client or has no need for initialization
@@ -7671,7 +5975,6 @@ function createPatchFunction (backend) {
         return false
       }
     }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     if (isDef(data)) {
       if (isDef(i = data.hook) && isDef(i = i.init)) { i(vnode, true /* hydrating */); }
       if (isDef(i = vnode.componentInstance)) {
@@ -7686,29 +5989,6 @@ function createPatchFunction (backend) {
         if (!elm.hasChildNodes()) {
           createChildren(vnode, children, insertedVnodeQueue);
         } else {
-<<<<<<< HEAD
-          var childrenMatch = true;
-          var childNode = elm.firstChild;
-          for (var i$1 = 0; i$1 < children.length; i$1++) {
-            if (!childNode || !hydrate(childNode, children[i$1], insertedVnodeQueue)) {
-              childrenMatch = false;
-              break
-            }
-            childNode = childNode.nextSibling;
-          }
-          // if childNode is not null, it means the actual childNodes list is
-          // longer than the virtual children list.
-          if (!childrenMatch || childNode) {
-            if ("development" !== 'production' &&
-              typeof console !== 'undefined' &&
-              !bailed
-            ) {
-              bailed = true;
-              console.warn('Parent: ', elm);
-              console.warn('Mismatching childNodes vs. VNodes: ', elm.childNodes, children);
-            }
-            return false
-=======
           // v-html and domProps: innerHTML
           if (isDef(i = data) && isDef(i = i.domProps) && isDef(i = i.innerHTML)) {
             if (i !== elm.innerHTML) {
@@ -7749,31 +6029,22 @@ function createPatchFunction (backend) {
               }
               return false
             }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
           }
         }
       }
       if (isDef(data)) {
-<<<<<<< HEAD
-        for (var key in data) {
-          if (!isRenderedModule(key)) {
-=======
         var fullInvoke = false;
         for (var key in data) {
           if (!isRenderedModule(key)) {
             fullInvoke = true;
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
             invokeCreateHooks(vnode, insertedVnodeQueue);
             break
           }
         }
-<<<<<<< HEAD
-=======
         if (!fullInvoke && data['class']) {
           // ensure collecting deps for deep class bindings for future updates
           traverse(data['class']);
         }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       }
     } else if (elm.data !== vnode.text) {
       elm.data = vnode.text;
@@ -7781,17 +6052,10 @@ function createPatchFunction (backend) {
     return true
   }
 
-<<<<<<< HEAD
-  function assertNodeMatch (node, vnode) {
-    if (isDef(vnode.tag)) {
-      return (
-        vnode.tag.indexOf('vue-component') === 0 ||
-=======
   function assertNodeMatch (node, vnode, inVPre) {
     if (isDef(vnode.tag)) {
       return vnode.tag.indexOf('vue-component') === 0 || (
         !isUnknownElement$$1(vnode, inVPre) &&
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
         vnode.tag.toLowerCase() === (node.tagName && node.tagName.toLowerCase())
       )
     } else {
@@ -7844,18 +6108,12 @@ function createPatchFunction (backend) {
           // create an empty node and replace it
           oldVnode = emptyNodeAt(oldVnode);
         }
-<<<<<<< HEAD
-        // replacing existing element
-        var oldElm = oldVnode.elm;
-        var parentElm$1 = nodeOps.parentNode(oldElm);
-=======
 
         // replacing existing element
         var oldElm = oldVnode.elm;
         var parentElm$1 = nodeOps.parentNode(oldElm);
 
         // create new node
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
         createElm(
           vnode,
           insertedVnodeQueue,
@@ -7866,23 +6124,6 @@ function createPatchFunction (backend) {
           nodeOps.nextSibling(oldElm)
         );
 
-<<<<<<< HEAD
-        if (isDef(vnode.parent)) {
-          // component root element replaced.
-          // update parent placeholder node element, recursively
-          var ancestor = vnode.parent;
-          while (ancestor) {
-            ancestor.elm = vnode.elm;
-            ancestor = ancestor.parent;
-          }
-          if (isPatchable(vnode)) {
-            for (var i = 0; i < cbs.create.length; ++i) {
-              cbs.create[i](emptyNode, vnode.parent);
-            }
-          }
-        }
-
-=======
         // update parent placeholder node element, recursively
         if (isDef(vnode.parent)) {
           var ancestor = vnode.parent;
@@ -7914,7 +6155,6 @@ function createPatchFunction (backend) {
         }
 
         // destroy old node
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
         if (isDef(parentElm$1)) {
           removeVnodes(parentElm$1, [oldVnode], 0, 0);
         } else if (isDef(oldVnode.tag)) {
@@ -7936,11 +6176,7 @@ var directives = {
   destroy: function unbindDirectives (vnode) {
     updateDirectives(vnode, emptyNode);
   }
-<<<<<<< HEAD
-};
-=======
 }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
 function updateDirectives (oldVnode, vnode) {
   if (oldVnode.data.directives || vnode.data.directives) {
@@ -7984,22 +6220,14 @@ function _update (oldVnode, vnode) {
       }
     };
     if (isCreate) {
-<<<<<<< HEAD
-      mergeVNodeHook(vnode.data.hook || (vnode.data.hook = {}), 'insert', callInsert);
-=======
       mergeVNodeHook(vnode, 'insert', callInsert);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     } else {
       callInsert();
     }
   }
 
   if (dirsWithPostpatch.length) {
-<<<<<<< HEAD
-    mergeVNodeHook(vnode.data.hook || (vnode.data.hook = {}), 'postpatch', function () {
-=======
     mergeVNodeHook(vnode, 'postpatch', function () {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       for (var i = 0; i < dirsWithPostpatch.length; i++) {
         callHook$1(dirsWithPostpatch[i], 'componentUpdated', vnode, oldVnode);
       }
@@ -8024,29 +6252,20 @@ function normalizeDirectives$1 (
 ) {
   var res = Object.create(null);
   if (!dirs) {
-<<<<<<< HEAD
-=======
     // $flow-disable-line
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     return res
   }
   var i, dir;
   for (i = 0; i < dirs.length; i++) {
     dir = dirs[i];
     if (!dir.modifiers) {
-<<<<<<< HEAD
-=======
       // $flow-disable-line
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       dir.modifiers = emptyModifiers;
     }
     res[getRawDirName(dir)] = dir;
     dir.def = resolveAsset(vm.$options, 'directives', dir.name, true);
   }
-<<<<<<< HEAD
-=======
   // $flow-disable-line
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   return res
 }
 
@@ -8068,11 +6287,7 @@ function callHook$1 (dir, hook, vnode, oldVnode, isDestroy) {
 var baseModules = [
   ref,
   directives
-<<<<<<< HEAD
-];
-=======
 ]
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
 /*  */
 
@@ -8101,14 +6316,9 @@ function updateAttrs (oldVnode, vnode) {
     }
   }
   // #4391: in IE9, setting type can reset value for input[type=radio]
-<<<<<<< HEAD
-  /* istanbul ignore if */
-  if (isIE9 && attrs.value !== oldAttrs.value) {
-=======
   // #6666: IE/Edge forces progress value down to 1 before setting a max
   /* istanbul ignore if */
   if ((isIE || isEdge) && attrs.value !== oldAttrs.value) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     setAttr(elm, 'value', attrs.value);
   }
   for (key in oldAttrs) {
@@ -8123,28 +6333,20 @@ function updateAttrs (oldVnode, vnode) {
 }
 
 function setAttr (el, key, value) {
-<<<<<<< HEAD
-  if (isBooleanAttr(key)) {
-=======
   if (el.tagName.indexOf('-') > -1) {
     baseSetAttr(el, key, value);
   } else if (isBooleanAttr(key)) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     // set attribute for blank value
     // e.g. <option disabled>Select one</option>
     if (isFalsyAttrValue(value)) {
       el.removeAttribute(key);
     } else {
-<<<<<<< HEAD
-      el.setAttribute(key, key);
-=======
       // technically allowfullscreen is a boolean attribute for <iframe>,
       // but Flash expects a value of "true" when used on <embed> tag
       value = key === 'allowfullscreen' && el.tagName === 'EMBED'
         ? 'true'
         : key;
       el.setAttribute(key, value);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     }
   } else if (isEnumeratedAttr(key)) {
     el.setAttribute(key, isFalsyAttrValue(value) || value === 'false' ? 'false' : 'true');
@@ -8155,13 +6357,6 @@ function setAttr (el, key, value) {
       el.setAttributeNS(xlinkNS, key, value);
     }
   } else {
-<<<<<<< HEAD
-    if (isFalsyAttrValue(value)) {
-      el.removeAttribute(key);
-    } else {
-      el.setAttribute(key, value);
-    }
-=======
     baseSetAttr(el, key, value);
   }
 }
@@ -8188,18 +6383,13 @@ function baseSetAttr (el, key, value) {
       el.__ieph = true; /* IE placeholder patched */
     }
     el.setAttribute(key, value);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   }
 }
 
 var attrs = {
   create: updateAttrs,
   update: updateAttrs
-<<<<<<< HEAD
-};
-=======
 }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
 /*  */
 
@@ -8237,11 +6427,7 @@ function updateClass (oldVnode, vnode) {
 var klass = {
   create: updateClass,
   update: updateClass
-<<<<<<< HEAD
-};
-=======
 }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
 /*  */
 
@@ -8337,11 +6523,7 @@ function wrapFilter (exp, filter) {
   } else {
     var name = filter.slice(0, i);
     var args = filter.slice(i + 1);
-<<<<<<< HEAD
-    return ("_f(\"" + name + "\")(" + exp + "," + args)
-=======
     return ("_f(\"" + name + "\")(" + exp + (args !== ')' ? ',' + args : args))
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   }
 }
 
@@ -8362,16 +6544,11 @@ function pluckModuleFunction (
 
 function addProp (el, name, value) {
   (el.props || (el.props = [])).push({ name: name, value: value });
-<<<<<<< HEAD
-=======
   el.plain = false;
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 }
 
 function addAttr (el, name, value) {
   (el.attrs || (el.attrs = [])).push({ name: name, value: value });
-<<<<<<< HEAD
-=======
   el.plain = false;
 }
 
@@ -8379,7 +6556,6 @@ function addAttr (el, name, value) {
 function addRawAttr (el, name, value) {
   el.attrsMap[name] = value;
   el.attrsList.push({ name: name, value: value });
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 }
 
 function addDirective (
@@ -8391,10 +6567,7 @@ function addDirective (
   modifiers
 ) {
   (el.directives || (el.directives = [])).push({ name: name, rawName: rawName, value: value, arg: arg, modifiers: modifiers });
-<<<<<<< HEAD
-=======
   el.plain = false;
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 }
 
 function addHandler (
@@ -8405,33 +6578,18 @@ function addHandler (
   important,
   warn
 ) {
-<<<<<<< HEAD
-=======
   modifiers = modifiers || emptyObject;
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   // warn prevent and passive modifier
   /* istanbul ignore if */
   if (
     "development" !== 'production' && warn &&
-<<<<<<< HEAD
-    modifiers && modifiers.prevent && modifiers.passive
-=======
     modifiers.prevent && modifiers.passive
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   ) {
     warn(
       'passive and prevent can\'t be used together. ' +
       'Passive handler can\'t prevent default event.'
     );
   }
-<<<<<<< HEAD
-  // check capture modifier
-  if (modifiers && modifiers.capture) {
-    delete modifiers.capture;
-    name = '!' + name; // mark the event as captured
-  }
-  if (modifiers && modifiers.once) {
-=======
 
   // check capture modifier
   if (modifiers.capture) {
@@ -8439,19 +6597,10 @@ function addHandler (
     name = '!' + name; // mark the event as captured
   }
   if (modifiers.once) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     delete modifiers.once;
     name = '~' + name; // mark the event as once
   }
   /* istanbul ignore if */
-<<<<<<< HEAD
-  if (modifiers && modifiers.passive) {
-    delete modifiers.passive;
-    name = '&' + name; // mark the event as passive
-  }
-  var events;
-  if (modifiers && modifiers.native) {
-=======
   if (modifiers.passive) {
     delete modifiers.passive;
     name = '&' + name; // mark the event as passive
@@ -8471,15 +6620,11 @@ function addHandler (
 
   var events;
   if (modifiers.native) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     delete modifiers.native;
     events = el.nativeEvents || (el.nativeEvents = {});
   } else {
     events = el.events || (el.events = {});
   }
-<<<<<<< HEAD
-  var newHandler = { value: value, modifiers: modifiers };
-=======
 
   var newHandler = {
     value: value.trim()
@@ -8488,7 +6633,6 @@ function addHandler (
     newHandler.modifiers = modifiers;
   }
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   var handlers = events[name];
   /* istanbul ignore if */
   if (Array.isArray(handlers)) {
@@ -8498,11 +6642,8 @@ function addHandler (
   } else {
     events[name] = newHandler;
   }
-<<<<<<< HEAD
-=======
 
   el.plain = false;
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 }
 
 function getBindingAttr (
@@ -8523,9 +6664,6 @@ function getBindingAttr (
   }
 }
 
-<<<<<<< HEAD
-function getAndRemoveAttr (el, name) {
-=======
 // note: this only removes the attr from the Array (attrsList) so that it
 // doesn't get processed by processAttrs.
 // By default it does NOT remove it from the map (attrsMap) because the map is
@@ -8535,7 +6673,6 @@ function getAndRemoveAttr (
   name,
   removeFromMap
 ) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   var val;
   if ((val = el.attrsMap[name]) != null) {
     var list = el.attrsList;
@@ -8546,12 +6683,9 @@ function getAndRemoveAttr (
       }
     }
   }
-<<<<<<< HEAD
-=======
   if (removeFromMap) {
     delete el.attrsMap[name];
   }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   return val
 }
 
@@ -8574,13 +6708,8 @@ function genComponentModel (
   if (trim) {
     valueExpression =
       "(typeof " + baseValueExpression + " === 'string'" +
-<<<<<<< HEAD
-        "? " + baseValueExpression + ".trim()" +
-        ": " + baseValueExpression + ")";
-=======
       "? " + baseValueExpression + ".trim()" +
       ": " + baseValueExpression + ")";
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   }
   if (number) {
     valueExpression = "_n(" + valueExpression + ")";
@@ -8601,35 +6730,15 @@ function genAssignmentCode (
   value,
   assignment
 ) {
-<<<<<<< HEAD
-  var modelRs = parseModel(value);
-  if (modelRs.idx === null) {
-    return (value + "=" + assignment)
-  } else {
-    return ("$set(" + (modelRs.exp) + ", " + (modelRs.idx) + ", " + assignment + ")")
-=======
   var res = parseModel(value);
   if (res.key === null) {
     return (value + "=" + assignment)
   } else {
     return ("$set(" + (res.exp) + ", " + (res.key) + ", " + assignment + ")")
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   }
 }
 
 /**
-<<<<<<< HEAD
- * parse directive model to do the array update transform. a[idx] = val => $$a.splice($$idx, 1, val)
- *
- * for loop possible cases:
- *
- * - test
- * - test[idx]
- * - test[test1[idx]]
- * - test["a"][idx]
- * - xxx.test[a[a].test1[idx]]
- * - test.xxx.a["asa"][test1[idx]]
-=======
  * Parse a v-model expression into a base path and a final key segment.
  * Handles both dot-path and possible square brackets.
  *
@@ -8641,7 +6750,6 @@ function genAssignmentCode (
  * - test["a"][key]
  * - xxx.test[a[a].test1[key]]
  * - test.xxx.a["asa"][test1[key]]
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
  *
  */
 
@@ -8652,20 +6760,6 @@ var index$1;
 var expressionPos;
 var expressionEndPos;
 
-<<<<<<< HEAD
-function parseModel (val) {
-  str = val;
-  len = str.length;
-  index$1 = expressionPos = expressionEndPos = 0;
-
-  if (val.indexOf('[') < 0 || val.lastIndexOf(']') < len - 1) {
-    return {
-      exp: val,
-      idx: null
-    }
-  }
-
-=======
 
 
 function parseModel (val) {
@@ -8692,7 +6786,6 @@ function parseModel (val) {
   str = val;
   index$1 = expressionPos = expressionEndPos = 0;
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   while (!eof()) {
     chr = next();
     /* istanbul ignore if */
@@ -8704,13 +6797,8 @@ function parseModel (val) {
   }
 
   return {
-<<<<<<< HEAD
-    exp: val.substring(0, expressionPos),
-    idx: val.substring(expressionPos + 1, expressionEndPos)
-=======
     exp: val.slice(0, expressionPos),
     key: val.slice(expressionPos + 1, expressionEndPos)
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   }
 }
 
@@ -8775,16 +6863,6 @@ function model (
   var type = el.attrsMap.type;
 
   {
-<<<<<<< HEAD
-    var dynamicType = el.attrsMap['v-bind:type'] || el.attrsMap[':type'];
-    if (tag === 'input' && dynamicType) {
-      warn$1(
-        "<input :type=\"" + dynamicType + "\" v-model=\"" + value + "\">:\n" +
-        "v-model does not support dynamic input types. Use v-if branches instead."
-      );
-    }
-=======
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     // inputs with type="file" are read only and setting the input's
     // value will throw an error.
     if (tag === 'input' && type === 'file') {
@@ -8835,15 +6913,6 @@ function genCheckboxModel (
   var falseValueBinding = getBindingAttr(el, 'false-value') || 'false';
   addProp(el, 'checked',
     "Array.isArray(" + value + ")" +
-<<<<<<< HEAD
-      "?_i(" + value + "," + valueBinding + ")>-1" + (
-        trueValueBinding === 'true'
-          ? (":(" + value + ")")
-          : (":_q(" + value + "," + trueValueBinding + ")")
-      )
-  );
-  addHandler(el, CHECKBOX_RADIO_TOKEN,
-=======
     "?_i(" + value + "," + valueBinding + ")>-1" + (
       trueValueBinding === 'true'
         ? (":(" + value + ")")
@@ -8851,49 +6920,28 @@ function genCheckboxModel (
     )
   );
   addHandler(el, 'change',
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     "var $$a=" + value + "," +
         '$$el=$event.target,' +
         "$$c=$$el.checked?(" + trueValueBinding + "):(" + falseValueBinding + ");" +
     'if(Array.isArray($$a)){' +
       "var $$v=" + (number ? '_n(' + valueBinding + ')' : valueBinding) + "," +
           '$$i=_i($$a,$$v);' +
-<<<<<<< HEAD
-      "if($$c){$$i<0&&(" + value + "=$$a.concat($$v))}" +
-      "else{$$i>-1&&(" + value + "=$$a.slice(0,$$i).concat($$a.slice($$i+1)))}" +
-=======
       "if($$el.checked){$$i<0&&(" + (genAssignmentCode(value, '$$a.concat([$$v])')) + ")}" +
       "else{$$i>-1&&(" + (genAssignmentCode(value, '$$a.slice(0,$$i).concat($$a.slice($$i+1))')) + ")}" +
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     "}else{" + (genAssignmentCode(value, '$$c')) + "}",
     null, true
   );
 }
 
 function genRadioModel (
-<<<<<<< HEAD
-    el,
-    value,
-    modifiers
-=======
   el,
   value,
   modifiers
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 ) {
   var number = modifiers && modifiers.number;
   var valueBinding = getBindingAttr(el, 'value') || 'null';
   valueBinding = number ? ("_n(" + valueBinding + ")") : valueBinding;
   addProp(el, 'checked', ("_q(" + value + "," + valueBinding + ")"));
-<<<<<<< HEAD
-  addHandler(el, CHECKBOX_RADIO_TOKEN, genAssignmentCode(value, valueBinding), null, true);
-}
-
-function genSelect (
-    el,
-    value,
-    modifiers
-=======
   addHandler(el, 'change', genAssignmentCode(value, valueBinding), null, true);
 }
 
@@ -8901,7 +6949,6 @@ function genSelect (
   el,
   value,
   modifiers
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 ) {
   var number = modifiers && modifiers.number;
   var selectedVal = "Array.prototype.filter" +
@@ -8921,8 +6968,6 @@ function genDefaultModel (
   modifiers
 ) {
   var type = el.attrsMap.type;
-<<<<<<< HEAD
-=======
 
   // warn if v-bind:value conflicts with v-model
   // except for inputs with v-bind:type
@@ -8938,7 +6983,6 @@ function genDefaultModel (
     }
   }
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   var ref = modifiers || {};
   var lazy = ref.lazy;
   var number = ref.number;
@@ -8977,20 +7021,6 @@ function genDefaultModel (
 // the whole point is ensuring the v-model callback gets called before
 // user-attached handlers.
 function normalizeEvents (on) {
-<<<<<<< HEAD
-  var event;
-  /* istanbul ignore if */
-  if (isDef(on[RANGE_TOKEN])) {
-    // IE input[type=range] only supports `change` event
-    event = isIE ? 'change' : 'input';
-    on[event] = [].concat(on[RANGE_TOKEN], on[event] || []);
-    delete on[RANGE_TOKEN];
-  }
-  if (isDef(on[CHECKBOX_RADIO_TOKEN])) {
-    // Chrome fires microtasks in between click/change, leads to #4521
-    event = isChrome ? 'click' : 'change';
-    on[event] = [].concat(on[CHECKBOX_RADIO_TOKEN], on[event] || []);
-=======
   /* istanbul ignore if */
   if (isDef(on[RANGE_TOKEN])) {
     // IE input[type=range] only supports `change` event
@@ -9003,15 +7033,12 @@ function normalizeEvents (on) {
   /* istanbul ignore if */
   if (isDef(on[CHECKBOX_RADIO_TOKEN])) {
     on.change = [].concat(on[CHECKBOX_RADIO_TOKEN], on.change || []);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     delete on[CHECKBOX_RADIO_TOKEN];
   }
 }
 
 var target$1;
 
-<<<<<<< HEAD
-=======
 function createOnceHandler (handler, event, capture) {
   var _target = target$1; // save current target element in closure
   return function onceHandler () {
@@ -9022,7 +7049,6 @@ function createOnceHandler (handler, event, capture) {
   }
 }
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 function add$1 (
   event,
   handler,
@@ -9030,23 +7056,8 @@ function add$1 (
   capture,
   passive
 ) {
-<<<<<<< HEAD
-  if (once$$1) {
-    var oldHandler = handler;
-    var _target = target$1; // save current target element in closure
-    handler = function (ev) {
-      var res = arguments.length === 1
-        ? oldHandler(ev)
-        : oldHandler.apply(null, arguments);
-      if (res !== null) {
-        remove$2(event, handler, capture, _target);
-      }
-    };
-  }
-=======
   handler = withMacroTask(handler);
   if (once$$1) { handler = createOnceHandler(handler, event, capture); }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   target$1.addEventListener(
     event,
     handler,
@@ -9062,23 +7073,6 @@ function remove$2 (
   capture,
   _target
 ) {
-<<<<<<< HEAD
-  (_target || target$1).removeEventListener(event, handler, capture);
-}
-
-function updateDOMListeners (oldVnode, vnode) {
-  var isComponentRoot = isDef(vnode.componentOptions);
-  var oldOn = isComponentRoot ? oldVnode.data.nativeOn : oldVnode.data.on;
-  var on = isComponentRoot ? vnode.data.nativeOn : vnode.data.on;
-  if (isUndef(oldOn) && isUndef(on)) {
-    return
-  }
-  on = on || {};
-  oldOn = oldOn || {};
-  target$1 = vnode.elm;
-  normalizeEvents(on);
-  updateListeners(on, oldOn, add$1, remove$2, vnode.context);
-=======
   (_target || target$1).removeEventListener(
     event,
     handler._withTask || handler,
@@ -9096,17 +7090,12 @@ function updateDOMListeners (oldVnode, vnode) {
   normalizeEvents(on);
   updateListeners(on, oldOn, add$1, remove$2, vnode.context);
   target$1 = undefined;
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 }
 
 var events = {
   create: updateDOMListeners,
   update: updateDOMListeners
-<<<<<<< HEAD
-};
-=======
 }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
 /*  */
 
@@ -9136,14 +7125,11 @@ function updateDOMProps (oldVnode, vnode) {
     if (key === 'textContent' || key === 'innerHTML') {
       if (vnode.children) { vnode.children.length = 0; }
       if (cur === oldProps[key]) { continue }
-<<<<<<< HEAD
-=======
       // #6601 work around Chrome version <= 55 bug where single textNode
       // replaced by innerHTML/textContent retains its parentNode property
       if (elm.childNodes.length === 1) {
         elm.removeChild(elm.childNodes[0]);
       }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     }
 
     if (key === 'value') {
@@ -9152,11 +7138,7 @@ function updateDOMProps (oldVnode, vnode) {
       elm._value = cur;
       // avoid resetting cursor position when value is the same
       var strCur = isUndef(cur) ? '' : String(cur);
-<<<<<<< HEAD
-      if (shouldUpdateValue(elm, vnode, strCur)) {
-=======
       if (shouldUpdateValue(elm, strCur)) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
         elm.value = strCur;
       }
     } else {
@@ -9168,34 +7150,6 @@ function updateDOMProps (oldVnode, vnode) {
 // check platforms/web/util/attrs.js acceptValue
 
 
-<<<<<<< HEAD
-function shouldUpdateValue (
-  elm,
-  vnode,
-  checkVal
-) {
-  return (!elm.composing && (
-    vnode.tag === 'option' ||
-    isDirty(elm, checkVal) ||
-    isInputChanged(elm, checkVal)
-  ))
-}
-
-function isDirty (elm, checkVal) {
-  // return true when textbox (.number and .trim) loses focus and its value is
-  // not equal to the updated value
-  return document.activeElement !== elm && elm.value !== checkVal
-}
-
-function isInputChanged (elm, newVal) {
-  var value = elm.value;
-  var modifiers = elm._vModifiers; // injected by v-model runtime
-  if (isDef(modifiers) && modifiers.number) {
-    return toNumber(value) !== toNumber(newVal)
-  }
-  if (isDef(modifiers) && modifiers.trim) {
-    return value.trim() !== newVal.trim()
-=======
 function shouldUpdateValue (elm, checkVal) {
   return (!elm.composing && (
     elm.tagName === 'OPTION' ||
@@ -9228,7 +7182,6 @@ function isDirtyWithModifiers (elm, newVal) {
     if (modifiers.trim) {
       return value.trim() !== newVal.trim()
     }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   }
   return value !== newVal
 }
@@ -9236,11 +7189,7 @@ function isDirtyWithModifiers (elm, newVal) {
 var domProps = {
   create: updateDOMProps,
   update: updateDOMProps
-<<<<<<< HEAD
-};
-=======
 }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
 /*  */
 
@@ -9290,14 +7239,10 @@ function getStyle (vnode, checkChild) {
     var childNode = vnode;
     while (childNode.componentInstance) {
       childNode = childNode.componentInstance._vnode;
-<<<<<<< HEAD
-      if (childNode.data && (styleData = normalizeStyleData(childNode.data))) {
-=======
       if (
         childNode && childNode.data &&
         (styleData = normalizeStyleData(childNode.data))
       ) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
         extend(res, styleData);
       }
     }
@@ -9380,11 +7325,7 @@ function updateStyle (oldVnode, vnode) {
   var style = normalizeStyleBinding(vnode.data.style) || {};
 
   // store normalized style under a different key for next diff
-<<<<<<< HEAD
-  // make sure to clone it if it's reactive, since the user likley wants
-=======
   // make sure to clone it if it's reactive, since the user likely wants
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   // to mutate it.
   vnode.data.normalizedStyle = isDef(style.__ob__)
     ? extend({}, style)
@@ -9409,11 +7350,7 @@ function updateStyle (oldVnode, vnode) {
 var style = {
   create: updateStyle,
   update: updateStyle
-<<<<<<< HEAD
-};
-=======
 }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
 /*  */
 
@@ -9479,22 +7416,6 @@ function removeClass (el, cls) {
 
 /*  */
 
-<<<<<<< HEAD
-function resolveTransition (def$$1) {
-  if (!def$$1) {
-    return
-  }
-  /* istanbul ignore else */
-  if (typeof def$$1 === 'object') {
-    var res = {};
-    if (def$$1.css !== false) {
-      extend(res, autoCssTransition(def$$1.name || 'v'));
-    }
-    extend(res, def$$1);
-    return res
-  } else if (typeof def$$1 === 'string') {
-    return autoCssTransition(def$$1)
-=======
 function resolveTransition (def) {
   if (!def) {
     return
@@ -9509,7 +7430,6 @@ function resolveTransition (def) {
     return res
   } else if (typeof def === 'string') {
     return autoCssTransition(def)
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   }
 }
 
@@ -9550,17 +7470,11 @@ if (hasTransition) {
 }
 
 // binding to window is necessary to make hot reload work in IE in strict mode
-<<<<<<< HEAD
-var raf = inBrowser && window.requestAnimationFrame
-  ? window.requestAnimationFrame.bind(window)
-  : setTimeout;
-=======
 var raf = inBrowser
   ? window.requestAnimationFrame
     ? window.requestAnimationFrame.bind(window)
     : setTimeout
   : /* istanbul ignore next */ function (fn) { return fn(); };
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
 function nextFrame (fn) {
   raf(function () {
@@ -9790,11 +7704,7 @@ function enter (vnode, toggleDisplay) {
 
   if (!vnode.data.show) {
     // remove pending leave element on enter by injecting an insert hook
-<<<<<<< HEAD
-    mergeVNodeHook(vnode.data.hook || (vnode.data.hook = {}), 'insert', function () {
-=======
     mergeVNodeHook(vnode, 'insert', function () {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       var parent = el.parentNode;
       var pendingNode = parent && parent._pending && parent._pending[vnode.key];
       if (pendingNode &&
@@ -9813,15 +7723,6 @@ function enter (vnode, toggleDisplay) {
     addTransitionClass(el, startClass);
     addTransitionClass(el, activeClass);
     nextFrame(function () {
-<<<<<<< HEAD
-      addTransitionClass(el, toClass);
-      removeTransitionClass(el, startClass);
-      if (!cb.cancelled && !userWantsControl) {
-        if (isValidDuration(explicitEnterDuration)) {
-          setTimeout(cb, explicitEnterDuration);
-        } else {
-          whenTransitionEnds(el, type, cb);
-=======
       removeTransitionClass(el, startClass);
       if (!cb.cancelled) {
         addTransitionClass(el, toClass);
@@ -9831,7 +7732,6 @@ function enter (vnode, toggleDisplay) {
           } else {
             whenTransitionEnds(el, type, cb);
           }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
         }
       }
     });
@@ -9857,20 +7757,12 @@ function leave (vnode, rm) {
   }
 
   var data = resolveTransition(vnode.data.transition);
-<<<<<<< HEAD
-  if (isUndef(data)) {
-=======
   if (isUndef(data) || el.nodeType !== 1) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     return rm()
   }
 
   /* istanbul ignore if */
-<<<<<<< HEAD
-  if (isDef(el._leaveCb) || el.nodeType !== 1) {
-=======
   if (isDef(el._leaveCb)) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     return
   }
 
@@ -9939,15 +7831,6 @@ function leave (vnode, rm) {
       addTransitionClass(el, leaveClass);
       addTransitionClass(el, leaveActiveClass);
       nextFrame(function () {
-<<<<<<< HEAD
-        addTransitionClass(el, leaveToClass);
-        removeTransitionClass(el, leaveClass);
-        if (!cb.cancelled && !userWantsControl) {
-          if (isValidDuration(explicitLeaveDuration)) {
-            setTimeout(cb, explicitLeaveDuration);
-          } else {
-            whenTransitionEnds(el, type, cb);
-=======
         removeTransitionClass(el, leaveClass);
         if (!cb.cancelled) {
           addTransitionClass(el, leaveToClass);
@@ -9957,7 +7840,6 @@ function leave (vnode, rm) {
             } else {
               whenTransitionEnds(el, type, cb);
             }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
           }
         }
       });
@@ -10030,11 +7912,7 @@ var transition = inBrowser ? {
       rm();
     }
   }
-<<<<<<< HEAD
-} : {};
-=======
 } : {}
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
 var platformModules = [
   attrs,
@@ -10043,11 +7921,7 @@ var platformModules = [
   domProps,
   style,
   transition
-<<<<<<< HEAD
-];
-=======
 ]
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
 /*  */
 
@@ -10062,11 +7936,6 @@ var patch = createPatchFunction({ nodeOps: nodeOps, modules: modules });
  * properties to Elements.
  */
 
-<<<<<<< HEAD
-var isTextInputType = makeMap('text,number,password,search,email,tel,url');
-
-=======
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 /* istanbul ignore if */
 if (isIE9) {
   // http://www.matts411.com/post/internet-explorer-9-oninput/
@@ -10078,22 +7947,6 @@ if (isIE9) {
   });
 }
 
-<<<<<<< HEAD
-var model$1 = {
-  inserted: function inserted (el, binding, vnode) {
-    if (vnode.tag === 'select') {
-      var cb = function () {
-        setSelected(el, binding, vnode.context);
-      };
-      cb();
-      /* istanbul ignore if */
-      if (isIE || isEdge) {
-        setTimeout(cb, 0);
-      }
-    } else if (vnode.tag === 'textarea' || isTextInputType(el.type)) {
-      el._vModifiers = binding.modifiers;
-      if (!binding.modifiers.lazy) {
-=======
 var directive = {
   inserted: function inserted (el, binding, vnode, oldVnode) {
     if (vnode.tag === 'select') {
@@ -10111,19 +7964,11 @@ var directive = {
       if (!binding.modifiers.lazy) {
         el.addEventListener('compositionstart', onCompositionStart);
         el.addEventListener('compositionend', onCompositionEnd);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
         // Safari < 10.2 & UIWebView doesn't fire compositionend when
         // switching focus before confirming composition choice
         // this also fixes the issue where some browsers e.g. iOS Chrome
         // fires "change" instead of "input" on autocomplete.
         el.addEventListener('change', onCompositionEnd);
-<<<<<<< HEAD
-        if (!isAndroid) {
-          el.addEventListener('compositionstart', onCompositionStart);
-          el.addEventListener('compositionend', onCompositionEnd);
-        }
-=======
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
         /* istanbul ignore if */
         if (isIE9) {
           el.vmodel = true;
@@ -10131,10 +7976,7 @@ var directive = {
       }
     }
   },
-<<<<<<< HEAD
-=======
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   componentUpdated: function componentUpdated (el, binding, vnode) {
     if (vnode.tag === 'select') {
       setSelected(el, binding, vnode.context);
@@ -10142,13 +7984,6 @@ var directive = {
       // it's possible that the value is out-of-sync with the rendered options.
       // detect such cases and filter out values that no longer has a matching
       // option in the DOM.
-<<<<<<< HEAD
-      var needReset = el.multiple
-        ? binding.value.some(function (v) { return hasNoMatchingOption(v, el.options); })
-        : binding.value !== binding.oldValue && hasNoMatchingOption(binding.value, el.options);
-      if (needReset) {
-        trigger(el, 'change');
-=======
       var prevOptions = el._vOptions;
       var curOptions = el._vOptions = [].map.call(el.options, getValue);
       if (curOptions.some(function (o, i) { return !looseEqual(o, prevOptions[i]); })) {
@@ -10160,15 +7995,12 @@ var directive = {
         if (needReset) {
           trigger(el, 'change');
         }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       }
     }
   }
 };
 
 function setSelected (el, binding, vm) {
-<<<<<<< HEAD
-=======
   actuallySetSelected(el, binding, vm);
   /* istanbul ignore if */
   if (isIE || isEdge) {
@@ -10179,7 +8011,6 @@ function setSelected (el, binding, vm) {
 }
 
 function actuallySetSelected (el, binding, vm) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   var value = binding.value;
   var isMultiple = el.multiple;
   if (isMultiple && !Array.isArray(value)) {
@@ -10213,16 +8044,7 @@ function actuallySetSelected (el, binding, vm) {
 }
 
 function hasNoMatchingOption (value, options) {
-<<<<<<< HEAD
-  for (var i = 0, l = options.length; i < l; i++) {
-    if (looseEqual(getValue(options[i]), value)) {
-      return false
-    }
-  }
-  return true
-=======
   return options.every(function (o) { return !looseEqual(o, value); })
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 }
 
 function getValue (option) {
@@ -10265,11 +8087,7 @@ var show = {
     var transition$$1 = vnode.data && vnode.data.transition;
     var originalDisplay = el.__vOriginalDisplay =
       el.style.display === 'none' ? '' : el.style.display;
-<<<<<<< HEAD
-    if (value && transition$$1 && !isIE9) {
-=======
     if (value && transition$$1) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       vnode.data.show = true;
       enter(vnode, function () {
         el.style.display = originalDisplay;
@@ -10284,17 +8102,10 @@ var show = {
     var oldValue = ref.oldValue;
 
     /* istanbul ignore if */
-<<<<<<< HEAD
-    if (value === oldValue) { return }
-    vnode = locateNode(vnode);
-    var transition$$1 = vnode.data && vnode.data.transition;
-    if (transition$$1 && !isIE9) {
-=======
     if (!value === !oldValue) { return }
     vnode = locateNode(vnode);
     var transition$$1 = vnode.data && vnode.data.transition;
     if (transition$$1) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       vnode.data.show = true;
       if (value) {
         enter(vnode, function () {
@@ -10321,21 +8132,12 @@ var show = {
       el.style.display = el.__vOriginalDisplay;
     }
   }
-<<<<<<< HEAD
-};
-
-var platformDirectives = {
-  model: model$1,
-  show: show
-};
-=======
 }
 
 var platformDirectives = {
   model: directive,
   show: show
 }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
 /*  */
 
@@ -10407,13 +8209,6 @@ function isSameChild (child, oldChild) {
   return oldChild.key === child.key && oldChild.tag === child.tag
 }
 
-<<<<<<< HEAD
-function isAsyncPlaceholder (node) {
-  return node.isComment && node.asyncFactory
-}
-
-=======
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 var Transition = {
   name: 'transition',
   props: transitionProps,
@@ -10422,11 +8217,7 @@ var Transition = {
   render: function render (h) {
     var this$1 = this;
 
-<<<<<<< HEAD
-    var children = this.$options._renderChildren;
-=======
     var children = this.$slots.default;
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     if (!children) {
       return
     }
@@ -10505,13 +8296,6 @@ var Transition = {
       oldChild &&
       oldChild.data &&
       !isSameChild(child, oldChild) &&
-<<<<<<< HEAD
-      !isAsyncPlaceholder(oldChild)
-    ) {
-      // replace old child transition data with fresh one
-      // important for dynamic transitions!
-      var oldData = oldChild && (oldChild.data.transition = extend({}, data));
-=======
       !isAsyncPlaceholder(oldChild) &&
       // #6687 component root is a comment node
       !(oldChild.componentInstance && oldChild.componentInstance._vnode.isComment)
@@ -10519,7 +8303,6 @@ var Transition = {
       // replace old child transition data with fresh one
       // important for dynamic transitions!
       var oldData = oldChild.data.transition = extend({}, data);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       // handle transition mode
       if (mode === 'out-in') {
         // return placeholder node and queue update when leave finishes
@@ -10543,11 +8326,7 @@ var Transition = {
 
     return rawChild
   }
-<<<<<<< HEAD
-};
-=======
 }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
 /*  */
 
@@ -10640,14 +8419,9 @@ var TransitionGroup = {
     children.forEach(applyTranslation);
 
     // force reflow to put everything in position
-<<<<<<< HEAD
-    var body = document.body;
-    var f = body.offsetHeight; // eslint-disable-line
-=======
     // assign to this to avoid being removed in tree-shaking
     // $flow-disable-line
     this._reflow = document.body.offsetHeight;
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
     children.forEach(function (c) {
       if (c.data.moved) {
@@ -10693,11 +8467,7 @@ var TransitionGroup = {
       return (this._hasMove = info.hasTransform)
     }
   }
-<<<<<<< HEAD
-};
-=======
 }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
 function callPendingCbs (c) {
   /* istanbul ignore if */
@@ -10730,32 +8500,11 @@ function applyTranslation (c) {
 var platformComponents = {
   Transition: Transition,
   TransitionGroup: TransitionGroup
-<<<<<<< HEAD
-};
-=======
 }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
 /*  */
 
 // install platform specific utils
-<<<<<<< HEAD
-Vue$3.config.mustUseProp = mustUseProp;
-Vue$3.config.isReservedTag = isReservedTag;
-Vue$3.config.isReservedAttr = isReservedAttr;
-Vue$3.config.getTagNamespace = getTagNamespace;
-Vue$3.config.isUnknownElement = isUnknownElement;
-
-// install platform runtime directives & components
-extend(Vue$3.options.directives, platformDirectives);
-extend(Vue$3.options.components, platformComponents);
-
-// install platform patch function
-Vue$3.prototype.__patch__ = inBrowser ? patch : noop;
-
-// public mount method
-Vue$3.prototype.$mount = function (
-=======
 Vue.config.mustUseProp = mustUseProp;
 Vue.config.isReservedTag = isReservedTag;
 Vue.config.isReservedAttr = isReservedAttr;
@@ -10771,7 +8520,6 @@ Vue.prototype.__patch__ = inBrowser ? patch : noop;
 
 // public mount method
 Vue.prototype.$mount = function (
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   el,
   hydrating
 ) {
@@ -10781,44 +8529,6 @@ Vue.prototype.$mount = function (
 
 // devtools global hook
 /* istanbul ignore next */
-<<<<<<< HEAD
-setTimeout(function () {
-  if (config.devtools) {
-    if (devtools) {
-      devtools.emit('init', Vue$3);
-    } else if ("development" !== 'production' && isChrome) {
-      console[console.info ? 'info' : 'log'](
-        'Download the Vue Devtools extension for a better development experience:\n' +
-        'https://github.com/vuejs/vue-devtools'
-      );
-    }
-  }
-  if ("development" !== 'production' &&
-    config.productionTip !== false &&
-    inBrowser && typeof console !== 'undefined'
-  ) {
-    console[console.info ? 'info' : 'log'](
-      "You are running Vue in development mode.\n" +
-      "Make sure to turn on production mode when deploying for production.\n" +
-      "See more tips at https://vuejs.org/guide/deployment.html"
-    );
-  }
-}, 0);
-
-/*  */
-
-// check whether current browser encodes a char inside attribute values
-function shouldDecode (content, encoded) {
-  var div = document.createElement('div');
-  div.innerHTML = "<div a=\"" + content + "\"/>";
-  return div.innerHTML.indexOf(encoded) > 0
-}
-
-// #3663
-// IE encodes newlines inside attribute values while other browsers don't
-var shouldDecodeNewlines = inBrowser ? shouldDecode('\n', '&#10;') : false;
-
-=======
 if (inBrowser) {
   setTimeout(function () {
     if (config.devtools) {
@@ -10849,7 +8559,6 @@ if (inBrowser) {
   }, 0);
 }
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 /*  */
 
 var defaultTagRE = /\{\{((?:.|\n)+?)\}\}/g;
@@ -10861,11 +8570,8 @@ var buildRegex = cached(function (delimiters) {
   return new RegExp(open + '((?:.|\\n)+?)' + close, 'g')
 });
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 function parseText (
   text,
   delimiters
@@ -10875,36 +8581,19 @@ function parseText (
     return
   }
   var tokens = [];
-<<<<<<< HEAD
-  var lastIndex = tagRE.lastIndex = 0;
-  var match, index;
-=======
   var rawTokens = [];
   var lastIndex = tagRE.lastIndex = 0;
   var match, index, tokenValue;
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   while ((match = tagRE.exec(text))) {
     index = match.index;
     // push text token
     if (index > lastIndex) {
-<<<<<<< HEAD
-      tokens.push(JSON.stringify(text.slice(lastIndex, index)));
-=======
       rawTokens.push(tokenValue = text.slice(lastIndex, index));
       tokens.push(JSON.stringify(tokenValue));
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     }
     // tag token
     var exp = parseFilters(match[1].trim());
     tokens.push(("_s(" + exp + ")"));
-<<<<<<< HEAD
-    lastIndex = index + match[0].length;
-  }
-  if (lastIndex < text.length) {
-    tokens.push(JSON.stringify(text.slice(lastIndex)));
-  }
-  return tokens.join('+')
-=======
     rawTokens.push({ '@binding': exp });
     lastIndex = index + match[0].length;
   }
@@ -10916,7 +8605,6 @@ function parseText (
     expression: tokens.join('+'),
     tokens: rawTokens
   }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 }
 
 /*  */
@@ -10925,13 +8613,8 @@ function transformNode (el, options) {
   var warn = options.warn || baseWarn;
   var staticClass = getAndRemoveAttr(el, 'class');
   if ("development" !== 'production' && staticClass) {
-<<<<<<< HEAD
-    var expression = parseText(staticClass, options.delimiters);
-    if (expression) {
-=======
     var res = parseText(staticClass, options.delimiters);
     if (res) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       warn(
         "class=\"" + staticClass + "\": " +
         'Interpolation inside attributes has been removed. ' +
@@ -10964,11 +8647,7 @@ var klass$1 = {
   staticKeys: ['staticClass'],
   transformNode: transformNode,
   genData: genData
-<<<<<<< HEAD
-};
-=======
 }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
 /*  */
 
@@ -10978,13 +8657,8 @@ function transformNode$1 (el, options) {
   if (staticStyle) {
     /* istanbul ignore if */
     {
-<<<<<<< HEAD
-      var expression = parseText(staticStyle, options.delimiters);
-      if (expression) {
-=======
       var res = parseText(staticStyle, options.delimiters);
       if (res) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
         warn(
           "style=\"" + staticStyle + "\": " +
           'Interpolation inside attributes has been removed. ' +
@@ -11017,40 +8691,10 @@ var style$1 = {
   staticKeys: ['staticStyle'],
   transformNode: transformNode$1,
   genData: genData$1
-<<<<<<< HEAD
-};
-
-var modules$1 = [
-  klass$1,
-  style$1
-];
-
-/*  */
-
-function text (el, dir) {
-  if (dir.value) {
-    addProp(el, 'textContent', ("_s(" + (dir.value) + ")"));
-  }
-=======
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 }
 
 /*  */
 
-<<<<<<< HEAD
-function html (el, dir) {
-  if (dir.value) {
-    addProp(el, 'innerHTML', ("_s(" + (dir.value) + ")"));
-  }
-}
-
-var directives$1 = {
-  model: model,
-  text: text,
-  html: html
-};
-
-=======
 var decoder;
 
 var he = {
@@ -11061,7 +8705,6 @@ var he = {
   }
 }
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 /*  */
 
 var isUnaryTag = makeMap(
@@ -11085,36 +8728,6 @@ var isNonPhrasingTag = makeMap(
   'title,tr,track'
 );
 
-<<<<<<< HEAD
-/*  */
-
-var baseOptions = {
-  expectHTML: true,
-  modules: modules$1,
-  directives: directives$1,
-  isPreTag: isPreTag,
-  isUnaryTag: isUnaryTag,
-  mustUseProp: mustUseProp,
-  canBeLeftOpenTag: canBeLeftOpenTag,
-  isReservedTag: isReservedTag,
-  getTagNamespace: getTagNamespace,
-  staticKeys: genStaticKeys(modules$1)
-};
-
-/*  */
-
-var decoder;
-
-var he = {
-  decode: function decode (html) {
-    decoder = decoder || document.createElement('div');
-    decoder.innerHTML = html;
-    return decoder.textContent
-  }
-};
-
-=======
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 /**
  * Not type-checking this file because it's mostly vendor code.
  */
@@ -11127,33 +8740,6 @@ var he = {
  */
 
 // Regular Expressions for parsing tags and attributes
-<<<<<<< HEAD
-var singleAttrIdentifier = /([^\s"'<>/=]+)/;
-var singleAttrAssign = /(?:=)/;
-var singleAttrValues = [
-  // attr value double quotes
-  /"([^"]*)"+/.source,
-  // attr value, single quotes
-  /'([^']*)'+/.source,
-  // attr value, no quotes
-  /([^\s"'=<>`]+)/.source
-];
-var attribute = new RegExp(
-  '^\\s*' + singleAttrIdentifier.source +
-  '(?:\\s*(' + singleAttrAssign.source + ')' +
-  '\\s*(?:' + singleAttrValues.join('|') + '))?'
-);
-
-// could use https://www.w3.org/TR/1999/REC-xml-names-19990114/#NT-QName
-// but for Vue templates we can enforce a simple charset
-var ncname = '[a-zA-Z_][\\w\\-\\.]*';
-var qnameCapture = '((?:' + ncname + '\\:)?' + ncname + ')';
-var startTagOpen = new RegExp('^<' + qnameCapture);
-var startTagClose = /^\s*(\/?)>/;
-var endTag = new RegExp('^<\\/' + qnameCapture + '[^>]*>');
-var doctype = /^<!DOCTYPE [^>]+>/i;
-var comment = /^<!--/;
-=======
 var attribute = /^\s*([^\s"'<>\/=]+)(?:\s*(=)\s*(?:"([^"]*)"+|'([^']*)'+|([^\s"'=<>`]+)))?/;
 // could use https://www.w3.org/TR/1999/REC-xml-names-19990114/#NT-QName
 // but for Vue templates we can enforce a simple charset
@@ -11165,7 +8751,6 @@ var endTag = new RegExp(("^<\\/" + qnameCapture + "[^>]*>"));
 var doctype = /^<!DOCTYPE [^>]+>/i;
 // #7298: escape - to avoid being pased as HTML comment when inlined in page
 var comment = /^<!\--/;
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 var conditionalComment = /^<!\[/;
 
 var IS_REGEX_CAPTURING_BROKEN = false;
@@ -11182,18 +8767,11 @@ var decodingMap = {
   '&gt;': '>',
   '&quot;': '"',
   '&amp;': '&',
-<<<<<<< HEAD
-  '&#10;': '\n'
-};
-var encodedAttr = /&(?:lt|gt|quot|amp);/g;
-var encodedAttrWithNewLines = /&(?:lt|gt|quot|amp|#10);/g;
-=======
   '&#10;': '\n',
   '&#9;': '\t'
 };
 var encodedAttr = /&(?:lt|gt|quot|amp);/g;
 var encodedAttrWithNewLines = /&(?:lt|gt|quot|amp|#10|#9);/g;
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
 // #5992
 var isIgnoreNewlineTag = makeMap('pre,textarea', true);
@@ -11215,12 +8793,6 @@ function parseHTML (html, options) {
     last = html;
     // Make sure we're not in a plaintext content element like script/style
     if (!lastTag || !isPlainTextElement(lastTag)) {
-<<<<<<< HEAD
-      if (shouldIgnoreFirstNewline(lastTag, html)) {
-        advance(1);
-      }
-=======
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       var textEnd = html.indexOf('<');
       if (textEnd === 0) {
         // Comment:
@@ -11266,12 +8838,9 @@ function parseHTML (html, options) {
         var startTagMatch = parseStartTag();
         if (startTagMatch) {
           handleStartTag(startTagMatch);
-<<<<<<< HEAD
-=======
           if (shouldIgnoreFirstNewline(lastTag, html)) {
             advance(1);
           }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
           continue
         }
       }
@@ -11311,11 +8880,7 @@ function parseHTML (html, options) {
         endTagLength = endTag.length;
         if (!isPlainTextElement(stackedTag) && stackedTag !== 'noscript') {
           text = text
-<<<<<<< HEAD
-            .replace(/<!--([\s\S]*?)-->/g, '$1')
-=======
             .replace(/<!\--([\s\S]*?)-->/g, '$1') // #7298
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
             .replace(/<!\[CDATA\[([\s\S]*?)]]>/g, '$1');
         }
         if (shouldIgnoreFirstNewline(stackedTag, text)) {
@@ -11397,21 +8962,12 @@ function parseHTML (html, options) {
         if (args[5] === '') { delete args[5]; }
       }
       var value = args[3] || args[4] || args[5] || '';
-<<<<<<< HEAD
-      attrs[i] = {
-        name: args[1],
-        value: decodeAttr(
-          value,
-          options.shouldDecodeNewlines
-        )
-=======
       var shouldDecodeNewlines = tagName === 'a' && args[1] === 'href'
         ? options.shouldDecodeNewlinesForHref
         : options.shouldDecodeNewlines;
       attrs[i] = {
         name: args[1],
         value: decodeAttr(value, shouldDecodeNewlines)
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       };
     }
 
@@ -11484,13 +9040,9 @@ function parseHTML (html, options) {
 
 var onRE = /^@|^v-on:/;
 var dirRE = /^v-|^@|^:/;
-var forAliasRE = /(.*?)\s+(?:in|of)\s+(.*)/;
-<<<<<<< HEAD
-var forIteratorRE = /\((\{[^}]*\}|[^,]*),([^,]*)(?:,([^,]*))?\)/;
-=======
+var forAliasRE = /([^]*?)\s+(?:in|of)\s+([^]*)/;
 var forIteratorRE = /,([^,\}\]]*)(?:,([^,\}\]]*))?$/;
 var stripParensRE = /^\(|\)$/g;
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
 var argRE = /:(.*)$/;
 var bindRE = /^:|^v-bind:/;
@@ -11508,8 +9060,6 @@ var platformIsPreTag;
 var platformMustUseProp;
 var platformGetTagNamespace;
 
-<<<<<<< HEAD
-=======
 
 
 function createASTElement (
@@ -11527,7 +9077,6 @@ function createASTElement (
   }
 }
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 /**
  * Convert HTML string to AST.
  */
@@ -11562,11 +9111,7 @@ function parse (
     }
   }
 
-<<<<<<< HEAD
-  function endPre (element) {
-=======
   function closeElement (element) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     // check pre state
     if (element.pre) {
       inVPre = false;
@@ -11574,13 +9119,10 @@ function parse (
     if (platformIsPreTag(element.tag)) {
       inPre = false;
     }
-<<<<<<< HEAD
-=======
     // apply post-transforms
     for (var i = 0; i < postTransforms.length; i++) {
       postTransforms[i](element, options);
     }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   }
 
   parseHTML(template, {
@@ -11589,10 +9131,7 @@ function parse (
     isUnaryTag: options.isUnaryTag,
     canBeLeftOpenTag: options.canBeLeftOpenTag,
     shouldDecodeNewlines: options.shouldDecodeNewlines,
-<<<<<<< HEAD
-=======
     shouldDecodeNewlinesForHref: options.shouldDecodeNewlinesForHref,
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     shouldKeepComment: options.comments,
     start: function start (tag, attrs, unary) {
       // check namespace.
@@ -11605,18 +9144,7 @@ function parse (
         attrs = guardIESVGBug(attrs);
       }
 
-<<<<<<< HEAD
-      var element = {
-        type: 1,
-        tag: tag,
-        attrsList: attrs,
-        attrsMap: makeAttrsMap(attrs),
-        parent: currentParent,
-        children: []
-      };
-=======
       var element = createASTElement(tag, attrs, currentParent);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       if (ns) {
         element.ns = ns;
       }
@@ -11632,11 +9160,7 @@ function parse (
 
       // apply pre-transforms
       for (var i = 0; i < preTransforms.length; i++) {
-<<<<<<< HEAD
-        preTransforms[i](element, options);
-=======
         element = preTransforms[i](element, options) || element;
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       }
 
       if (!inVPre) {
@@ -11650,25 +9174,6 @@ function parse (
       }
       if (inVPre) {
         processRawAttrs(element);
-<<<<<<< HEAD
-      } else {
-        processFor(element);
-        processIf(element);
-        processOnce(element);
-        processKey(element);
-
-        // determine whether this is a plain element after
-        // removing structural attributes
-        element.plain = !element.key && !attrs.length;
-
-        processRef(element);
-        processSlot(element);
-        processComponent(element);
-        for (var i$1 = 0; i$1 < transforms.length; i$1++) {
-          transforms[i$1](element, options);
-        }
-        processAttrs(element);
-=======
       } else if (!element.processed) {
         // structural directives
         processFor(element);
@@ -11676,7 +9181,6 @@ function parse (
         processOnce(element);
         // element-scope stuff
         processElement(element, options);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       }
 
       function checkRootConstraints (el) {
@@ -11731,15 +9235,7 @@ function parse (
         currentParent = element;
         stack.push(element);
       } else {
-<<<<<<< HEAD
-        endPre(element);
-      }
-      // apply post-transforms
-      for (var i$2 = 0; i$2 < postTransforms.length; i$2++) {
-        postTransforms[i$2](element, options);
-=======
         closeElement(element);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       }
     },
 
@@ -11753,11 +9249,7 @@ function parse (
       // pop stack
       stack.length -= 1;
       currentParent = stack[stack.length - 1];
-<<<<<<< HEAD
-      endPre(element);
-=======
       closeElement(element);
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     },
 
     chars: function chars (text) {
@@ -11789,20 +9281,12 @@ function parse (
         // only preserve whitespace if its not right after a starting tag
         : preserveWhitespace && children.length ? ' ' : '';
       if (text) {
-<<<<<<< HEAD
-        var expression;
-        if (!inVPre && text !== ' ' && (expression = parseText(text, delimiters))) {
-          children.push({
-            type: 2,
-            expression: expression,
-=======
         var res;
         if (!inVPre && text !== ' ' && (res = parseText(text, delimiters))) {
           children.push({
             type: 2,
             expression: res.expression,
             tokens: res.tokens,
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
             text: text
           });
         } else if (text !== ' ' || !children.length || children[children.length - 1].text !== ' ') {
@@ -11846,8 +9330,6 @@ function processRawAttrs (el) {
   }
 }
 
-<<<<<<< HEAD
-=======
 function processElement (element, options) {
   processKey(element);
 
@@ -11864,7 +9346,6 @@ function processElement (element, options) {
   processAttrs(element);
 }
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 function processKey (el) {
   var exp = getBindingAttr(el, 'key');
   if (exp) {
@@ -11886,28 +9367,6 @@ function processRef (el) {
 function processFor (el) {
   var exp;
   if ((exp = getAndRemoveAttr(el, 'v-for'))) {
-<<<<<<< HEAD
-    var inMatch = exp.match(forAliasRE);
-    if (!inMatch) {
-      "development" !== 'production' && warn$2(
-        ("Invalid v-for expression: " + exp)
-      );
-      return
-    }
-    el.for = inMatch[2].trim();
-    var alias = inMatch[1].trim();
-    var iteratorMatch = alias.match(forIteratorRE);
-    if (iteratorMatch) {
-      el.alias = iteratorMatch[1].trim();
-      el.iterator1 = iteratorMatch[2].trim();
-      if (iteratorMatch[3]) {
-        el.iterator2 = iteratorMatch[3].trim();
-      }
-    } else {
-      el.alias = alias;
-    }
-  }
-=======
     var res = parseFor(exp);
     if (res) {
       extend(el, res);
@@ -11938,7 +9397,6 @@ function parseFor (exp) {
     res.alias = alias;
   }
   return res
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 }
 
 function processIf (el) {
@@ -12017,14 +9475,6 @@ function processSlot (el) {
       );
     }
   } else {
-<<<<<<< HEAD
-    var slotTarget = getBindingAttr(el, 'slot');
-    if (slotTarget) {
-      el.slotTarget = slotTarget === '""' ? '"default"' : slotTarget;
-    }
-    if (el.tag === 'template') {
-      el.slotScope = getAndRemoveAttr(el, 'scope');
-=======
     var slotScope;
     if (el.tag === 'template') {
       slotScope = getAndRemoveAttr(el, 'scope');
@@ -12059,7 +9509,6 @@ function processSlot (el) {
       if (el.tag !== 'template' && !el.slotScope) {
         addAttr(el, 'slot', slotTarget);
       }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     }
   }
 }
@@ -12109,13 +9558,8 @@ function processAttrs (el) {
             );
           }
         }
-<<<<<<< HEAD
-        if (!el.component && (
-          isProp || platformMustUseProp(el.tag, el.attrsMap.type, name)
-=======
         if (isProp || (
           !el.component && platformMustUseProp(el.tag, el.attrsMap.type, name)
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
         )) {
           addProp(el, name, value);
         } else {
@@ -12140,13 +9584,8 @@ function processAttrs (el) {
     } else {
       // literal attribute
       {
-<<<<<<< HEAD
-        var expression = parseText(value, delimiters);
-        if (expression) {
-=======
         var res = parseText(value, delimiters);
         if (res) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
           warn$2(
             name + "=\"" + value + "\": " +
             'Interpolation inside attributes has been removed. ' +
@@ -12156,8 +9595,6 @@ function processAttrs (el) {
         }
       }
       addAttr(el, name, JSON.stringify(value));
-<<<<<<< HEAD
-=======
       // #6887 firefox doesn't update muted state if set via attribute
       // even immediately after element creation
       if (!el.component &&
@@ -12165,7 +9602,6 @@ function processAttrs (el) {
           platformMustUseProp(el.tag, el.attrsMap.type, name)) {
         addProp(el, name, 'true');
       }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     }
   }
 }
@@ -12253,8 +9689,6 @@ function checkForAliasModel (el, value) {
 
 /*  */
 
-<<<<<<< HEAD
-=======
 /**
  * Expand input[v-model] with dyanmic type bindings into v-if-else chains
  * Turn this:
@@ -12276,7 +9710,7 @@ function preTransformNode (el, options) {
     if (map[':type'] || map['v-bind:type']) {
       typeBinding = getBindingAttr(el, 'type');
     }
-    if (!typeBinding && map['v-bind']) {
+    if (!map.type && !typeBinding && map['v-bind']) {
       typeBinding = "(" + (map['v-bind']) + ").type";
     }
 
@@ -12380,7 +9814,6 @@ var baseOptions = {
 
 /*  */
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 var isStaticKey;
 var isPlatformReservedTag;
 
@@ -12508,17 +9941,10 @@ function isDirectChildOfTemplateFor (node) {
 
 /*  */
 
-<<<<<<< HEAD
-var fnExpRE = /^\s*([\w$_]+|\([^)]*?\))\s*=>|^function\s*\(/;
-var simplePathRE = /^\s*[A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*|\['.*?']|\[".*?"]|\[\d+]|\[[A-Za-z_$][\w$]*])*\s*$/;
-
-// keyCode aliases
-=======
 var fnExpRE = /^([\w$_]+|\([^)]*?\))\s*=>|^function\s*\(/;
 var simplePathRE = /^[A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*|\['[^']*?']|\["[^"]*?"]|\[\d+]|\[[A-Za-z_$][\w$]*])*$/;
 
 // KeyboardEvent.keyCode aliases
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 var keyCodes = {
   esc: 27,
   tab: 9,
@@ -12531,22 +9957,20 @@ var keyCodes = {
   'delete': [8, 46]
 };
 
-<<<<<<< HEAD
-=======
 // KeyboardEvent.key aliases
 var keyNames = {
   esc: 'Escape',
   tab: 'Tab',
   enter: 'Enter',
   space: ' ',
-  up: 'ArrowUp',
-  left: 'ArrowLeft',
-  right: 'ArrowRight',
-  down: 'ArrowDown',
+  // #7806: IE11 uses key names without `Arrow` prefix for arrow keys.
+  up: ['Up', 'ArrowUp'],
+  left: ['Left', 'ArrowLeft'],
+  right: ['Right', 'ArrowRight'],
+  down: ['Down', 'ArrowDown'],
   'delete': ['Backspace', 'Delete']
 };
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 // #4868: modifiers that prevent the execution of the listener
 // need to explicitly return null so that we can determine whether to remove
 // the listener for .once
@@ -12572,22 +9996,7 @@ function genHandlers (
 ) {
   var res = isNative ? 'nativeOn:{' : 'on:{';
   for (var name in events) {
-<<<<<<< HEAD
-    var handler = events[name];
-    // #5330: warn click.right, since right clicks do not actually fire click events.
-    if ("development" !== 'production' &&
-      name === 'click' &&
-      handler && handler.modifiers && handler.modifiers.right
-    ) {
-      warn(
-        "Use \"contextmenu\" instead of \"click.right\" since right clicks " +
-        "do not actually fire \"click\" events."
-      );
-    }
-    res += "\"" + name + "\":" + (genHandler(name, handler)) + ",";
-=======
     res += "\"" + name + "\":" + (genHandler(name, events[name])) + ",";
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   }
   return res.slice(0, -1) + '}'
 }
@@ -12608,17 +10017,11 @@ function genHandler (
   var isFunctionExpression = fnExpRE.test(handler.value);
 
   if (!handler.modifiers) {
-<<<<<<< HEAD
-    return isMethodPath || isFunctionExpression
-      ? handler.value
-      : ("function($event){" + (handler.value) + "}") // inline statement
-=======
     if (isMethodPath || isFunctionExpression) {
       return handler.value
     }
     /* istanbul ignore if */
     return ("function($event){" + (handler.value) + "}") // inline statement
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   } else {
     var code = '';
     var genModifierCode = '';
@@ -12630,8 +10033,6 @@ function genHandler (
         if (keyCodes[key]) {
           keys.push(key);
         }
-<<<<<<< HEAD
-=======
       } else if (key === 'exact') {
         var modifiers = (handler.modifiers);
         genModifierCode += genGuard(
@@ -12640,7 +10041,6 @@ function genHandler (
             .map(function (keyModifier) { return ("$event." + keyModifier + "Key"); })
             .join('||')
         );
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       } else {
         keys.push(key);
       }
@@ -12653,18 +10053,11 @@ function genHandler (
       code += genModifierCode;
     }
     var handlerCode = isMethodPath
-<<<<<<< HEAD
-      ? handler.value + '($event)'
-      : isFunctionExpression
-        ? ("(" + (handler.value) + ")($event)")
-        : handler.value;
-=======
       ? ("return " + (handler.value) + "($event)")
       : isFunctionExpression
         ? ("return (" + (handler.value) + ")($event)")
         : handler.value;
     /* istanbul ignore if */
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     return ("function($event){" + code + handlerCode + "}")
   }
 }
@@ -12678,10 +10071,6 @@ function genFilterCode (key) {
   if (keyVal) {
     return ("$event.keyCode!==" + keyVal)
   }
-<<<<<<< HEAD
-  var alias = keyCodes[key];
-  return ("_k($event.keyCode," + (JSON.stringify(key)) + (alias ? ',' + JSON.stringify(alias) : '') + ")")
-=======
   var keyCode = keyCodes[key];
   var keyName = keyNames[key];
   return (
@@ -12692,7 +10081,6 @@ function genFilterCode (key) {
     "" + (JSON.stringify(keyName)) +
     ")"
   )
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 }
 
 /*  */
@@ -12718,11 +10106,7 @@ var baseDirectives = {
   on: on,
   bind: bind$1,
   cloak: noop
-<<<<<<< HEAD
-};
-=======
 }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
 /*  */
 
@@ -12812,11 +10196,7 @@ function genOnce (el, state) {
       );
       return genElement(el, state)
     }
-<<<<<<< HEAD
-    return ("_o(" + (genElement(el, state)) + "," + (state.onceId++) + (key ? ("," + key) : "") + ")")
-=======
     return ("_o(" + (genElement(el, state)) + "," + (state.onceId++) + "," + key + ")")
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   } else {
     return genStatic(el, state)
   }
@@ -12938,12 +10318,8 @@ function genData$2 (el, state) {
     data += (genHandlers(el.nativeEvents, true, state.warn)) + ",";
   }
   // slot target
-<<<<<<< HEAD
-  if (el.slotTarget) {
-=======
   // only for non-scoped slots
   if (el.slotTarget && !el.slotScope) {
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     data += "slot:" + (el.slotTarget) + ",";
   }
   // scoped slots
@@ -13001,11 +10377,7 @@ function genDirectives (el, state) {
 function genInlineTemplate (el, state) {
   var ast = el.children[0];
   if ("development" !== 'production' && (
-<<<<<<< HEAD
-    el.children.length > 1 || ast.type !== 1
-=======
     el.children.length !== 1 || ast.type !== 1
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   )) {
     state.warn('Inline-template components must have exactly one child element.');
   }
@@ -13032,12 +10404,6 @@ function genScopedSlot (
   if (el.for && !el.forProcessed) {
     return genForScopedSlot(key, el, state)
   }
-<<<<<<< HEAD
-  return "{key:" + key + ",fn:function(" + (String(el.attrsMap.scope)) + "){" +
-    "return " + (el.tag === 'template'
-      ? genChildren(el, state) || 'void 0'
-      : genElement(el, state)) + "}}"
-=======
   var fn = "function(" + (String(el.slotScope)) + "){" +
     "return " + (el.tag === 'template'
       ? el.if
@@ -13045,7 +10411,6 @@ function genScopedSlot (
         : genChildren(el, state) || 'undefined'
       : genElement(el, state)) + "}";
   return ("{key:" + key + ",fn:" + fn + "}")
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 }
 
 function genForScopedSlot (
@@ -13138,11 +10503,7 @@ function genText (text) {
 }
 
 function genComment (comment) {
-<<<<<<< HEAD
-  return ("_e('" + (comment.text) + "')")
-=======
   return ("_e(" + (JSON.stringify(comment.text)) + ")")
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 }
 
 function genSlot (el, state) {
@@ -13177,14 +10538,10 @@ function genProps (props) {
   var res = '';
   for (var i = 0; i < props.length; i++) {
     var prop = props[i];
-<<<<<<< HEAD
-    res += "\"" + (prop.name) + "\":" + (transformSpecialNewlines(prop.value)) + ",";
-=======
     /* istanbul ignore if */
     {
       res += "\"" + (prop.name) + "\":" + (transformSpecialNewlines(prop.value)) + ",";
     }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   }
   return res.slice(0, -1)
 }
@@ -13211,12 +10568,6 @@ var unaryOperatorsRE = new RegExp('\\b' + (
   'delete,typeof,void'
 ).split(',').join('\\s*\\([^\\)]*\\)|\\b') + '\\s*\\([^\\)]*\\)');
 
-<<<<<<< HEAD
-// check valid identifier for v-for
-var identRE = /[A-Za-z_$][\w$]*/;
-
-=======
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 // strip strings in expressions
 var stripStringRE = /'(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*"|`(?:[^`\\]|\\.)*\$\{|\}(?:[^`\\]|\\.)*`|`(?:[^`\\]|\\.)*`/g;
 
@@ -13274,11 +10625,6 @@ function checkFor (node, text, errors) {
   checkIdentifier(node.iterator2, 'v-for iterator', text, errors);
 }
 
-<<<<<<< HEAD
-function checkIdentifier (ident, type, text, errors) {
-  if (typeof ident === 'string' && !identRE.test(ident)) {
-    errors.push(("invalid " + type + " \"" + ident + "\" in expression: " + (text.trim())));
-=======
 function checkIdentifier (
   ident,
   type,
@@ -13291,7 +10637,6 @@ function checkIdentifier (
     } catch (e) {
       errors.push(("invalid " + type + " \"" + ident + "\" in expression: " + (text.trim())));
     }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   }
 }
 
@@ -13303,12 +10648,6 @@ function checkExpression (exp, text, errors) {
     if (keywordMatch) {
       errors.push(
         "avoid using JavaScript keyword as property name: " +
-<<<<<<< HEAD
-        "\"" + (keywordMatch[0]) + "\" in expression " + (text.trim())
-      );
-    } else {
-      errors.push(("invalid expression: " + (text.trim())));
-=======
         "\"" + (keywordMatch[0]) + "\"\n  Raw expression: " + (text.trim())
       );
     } else {
@@ -13317,7 +10656,6 @@ function checkExpression (exp, text, errors) {
         "    " + exp + "\n\n" +
         "  Raw expression: " + (text.trim()) + "\n"
       );
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
     }
   }
 }
@@ -13341,13 +10679,9 @@ function createCompileToFunctionFn (compile) {
     options,
     vm
   ) {
-<<<<<<< HEAD
-    options = options || {};
-=======
     options = extend({}, options);
     var warn$$1 = options.warn || warn;
     delete options.warn;
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
     /* istanbul ignore if */
     {
@@ -13356,11 +10690,7 @@ function createCompileToFunctionFn (compile) {
         new Function('return 1');
       } catch (e) {
         if (e.toString().match(/unsafe-eval|CSP/)) {
-<<<<<<< HEAD
-          warn(
-=======
           warn$$1(
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
             'It seems you are using the standalone build of Vue.js in an ' +
             'environment with Content Security Policy that prohibits unsafe-eval. ' +
             'The template compiler cannot work in this environment. Consider ' +
@@ -13385,11 +10715,7 @@ function createCompileToFunctionFn (compile) {
     // check compilation errors/tips
     {
       if (compiled.errors && compiled.errors.length) {
-<<<<<<< HEAD
-        warn(
-=======
         warn$$1(
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
           "Error compiling template:\n\n" + template + "\n\n" +
           compiled.errors.map(function (e) { return ("- " + e); }).join('\n') + '\n',
           vm
@@ -13414,11 +10740,7 @@ function createCompileToFunctionFn (compile) {
     /* istanbul ignore if */
     {
       if ((!compiled.errors || !compiled.errors.length) && fnGenErrors.length) {
-<<<<<<< HEAD
-        warn(
-=======
         warn$$1(
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
           "Failed to generate render function:\n\n" +
           fnGenErrors.map(function (ref) {
             var err = ref.err;
@@ -13459,11 +10781,7 @@ function createCompilerCreator (baseCompile) {
         // merge custom directives
         if (options.directives) {
           finalOptions.directives = extend(
-<<<<<<< HEAD
-            Object.create(baseOptions.directives),
-=======
             Object.create(baseOptions.directives || null),
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
             options.directives
           );
         }
@@ -13501,13 +10819,9 @@ var createCompiler = createCompilerCreator(function baseCompile (
   options
 ) {
   var ast = parse(template.trim(), options);
-<<<<<<< HEAD
-  optimize(ast, options);
-=======
   if (options.optimize !== false) {
     optimize(ast, options);
   }
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   var code = generate(ast, options);
   return {
     ast: ast,
@@ -13523,8 +10837,6 @@ var compileToFunctions = ref$1.compileToFunctions;
 
 /*  */
 
-<<<<<<< HEAD
-=======
 // check whether current browser encodes a char inside attribute values
 var div;
 function getShouldDecode (href) {
@@ -13540,19 +10852,13 @@ var shouldDecodeNewlinesForHref = inBrowser ? getShouldDecode(true) : false;
 
 /*  */
 
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 var idToTemplate = cached(function (id) {
   var el = query(id);
   return el && el.innerHTML
 });
 
-<<<<<<< HEAD
-var mount = Vue$3.prototype.$mount;
-Vue$3.prototype.$mount = function (
-=======
 var mount = Vue.prototype.$mount;
 Vue.prototype.$mount = function (
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
   el,
   hydrating
 ) {
@@ -13601,10 +10907,7 @@ Vue.prototype.$mount = function (
 
       var ref = compileToFunctions(template, {
         shouldDecodeNewlines: shouldDecodeNewlines,
-<<<<<<< HEAD
-=======
         shouldDecodeNewlinesForHref: shouldDecodeNewlinesForHref,
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
         delimiters: options.delimiters,
         comments: options.comments
       }, this);
@@ -13616,11 +10919,7 @@ Vue.prototype.$mount = function (
       /* istanbul ignore if */
       if ("development" !== 'production' && config.performance && mark) {
         mark('compile end');
-<<<<<<< HEAD
-        measure(((this._name) + " compile"), 'compile', 'compile end');
-=======
         measure(("vue " + (this._name) + " compile"), 'compile', 'compile end');
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
       }
     }
   }
@@ -13641,14 +10940,8 @@ function getOuterHTML (el) {
   }
 }
 
-<<<<<<< HEAD
-Vue$3.compile = compileToFunctions;
-
-return Vue$3;
-=======
 Vue.compile = compileToFunctions;
 
 return Vue;
->>>>>>> 4ca26d914ca9dbeefd341206d09515922c1e3045
 
 })));
